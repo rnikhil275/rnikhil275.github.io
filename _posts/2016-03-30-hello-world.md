@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Home
+title: First Post
 comments: True
 ---
 
