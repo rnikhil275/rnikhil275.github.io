@@ -1,5 +1,7 @@
-
+---
 layout: post
-title: First Post
+title: Home
+---
+
 
 This is a test post
