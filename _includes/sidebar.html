@@ -12,7 +12,7 @@
         <a href="https://github.com/{{ site.author.github }}">
           <span class="fa-stack fa-lg">
             <i class="fa fa-square-o fa-stack-2x"></i>
-            <i class="fa fa-github "></i>
+            <i class="fa fa-github fa-stack-1x "></i>
           </span>
         </a>
       {% endif %}
@@ -46,19 +46,19 @@
  <div id="contact-list" style="text-align:center">
 
     {% if site.author.facebook %}
-      <a href="https://goodreads.com/{{ site.author.goodreads }}">
+      <a href="https://facebook.com/{{ site.author.facebook }}">
         <span class="fa-stack fa-lg">
           <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa facebook-official fa-stack-1x"></i>
+          <i class="fa fa-facebook-official fa-stack-1x"></i>
         </span>
       </a>
     {% endif %}
 
-    {% if site.author.google_scholar %}
-      <a href="{{ site.author.google_scholar }}">
+    {% if site.author.stackoverflow %}
+      <a href="https{{ site.author.stackoverflow }}">
         <span class="fa-stack fa-lg">
           <i class="fa fa-square-o fa-stack-2x"></i>
-          <i class="fa fa-google fa-stack-1x"></i>
+          <i class="fa fa-stack-overflow fa-stack-1x"></i>
         </span>
       </a>
     {% endif %}
