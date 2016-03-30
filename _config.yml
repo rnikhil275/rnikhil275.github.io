@@ -12,8 +12,9 @@ description:      'test'
 url:              http://rnikhil275.github.io
 
 author:
-  name:           'Nikhil. R'
-  url:            https://twitter.com/rnikhil275
+  name:               'Nikhil. R'
+  url:                https://twitter.com/rnikhil275
+  gravatar_md5:       44f492043edf5c5a93d583425f20f5d0
 
 paginate:         5
 
