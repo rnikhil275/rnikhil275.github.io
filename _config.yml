@@ -8,7 +8,7 @@ permalink:        pretty
 # Setup
 title:            Nikhil. R
 tagline:          ''
-description:      ''
+description:      'test'
 url:              http://rnikhil275.github.io
 
 author:
@@ -19,6 +19,7 @@ paginate:         5
 
 # Custom vars
 version:          1.0.0
+
 
 github:
   repo:           https://github.com/rnikhil275/rnikhil275.github.io
