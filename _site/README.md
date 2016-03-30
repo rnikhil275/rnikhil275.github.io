@@ -9,7 +9,7 @@
 
 #To Do
 
-- [ ] Add Disqus comments
-- [ ] Add Gravatar
+- [x] Add Disqus comments
+- [x] Add Gravatar
 - [ ] Add custom CSS
 - [ ] Add all profile links and icons
