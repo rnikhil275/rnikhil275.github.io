@@ -13,4 +13,4 @@
 - [x] Add Gravatar
 - [x] Add custom CSS
 - [x] Add all profile links and icons
-- [ ] Write Something :P 
+- [ ] Edit About Page 
