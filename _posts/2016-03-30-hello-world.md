@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Home
-comments: True
+comments:true
 ---
 
 
