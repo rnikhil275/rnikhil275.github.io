@@ -10,13 +10,14 @@ title:            Nikhil. R
 tagline:          ''
 description:      'test'
 url:              http://rnikhil275.github.io
+rss:              atom.xml
 
 author:
   name:               'Nikhil. R'
   url:                http://rnikhil275.github.io/
   gravatar_md5:       44f492043edf5c5a93d583425f20f5d0
   github:             rnikhil275
-  stackoverlfow:      http://stackoverflow.com/users/4379159/rnikhil275
+  stackoverflow:      http://stackoverflow.com/users/4379159/rnikhil275
   linkedin:           rnikhil275  
   facebook:           rnikhil275
   email:              rnikhil96@outlook.com
