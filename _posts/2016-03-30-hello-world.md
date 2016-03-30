@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Home
-comments:true
+comments: True
 ---
 
 
-This is a test post
+Hello !
