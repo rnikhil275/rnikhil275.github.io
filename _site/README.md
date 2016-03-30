@@ -6,3 +6,10 @@
 [Jekyll]: http://jekyllrb.com/
 [Lanyon]: https://github.com/poole/Lanyon/
 [GitHub Pages]: https://pages.github.com/
+
+#To Do
+
+-[ ] Add Disqus comments
+-[ ] Add Gravatar
+-[ ] Add custom CSS
+-[ ] Add all profile links and icons
