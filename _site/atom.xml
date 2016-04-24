@@ -4,7 +4,7 @@
  <title>Nikhil. R</title>
  <link href="http://rnikhil275.github.io/atom.xml" rel="self"/>
  <link href="http://rnikhil275.github.io/"/>
- <updated>2016-04-25T02:14:54+05:30</updated>
+ <updated>2016-04-25T02:15:56+05:30</updated>
  <id>http://rnikhil275.github.io</id>
  <author>
    <name>Nikhil. R</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Google Summer of Code 2016</title>
-   <link href="http://rnikhil275.github.io/2016/04/24/GSoc-2016/"/>
+   <link href="http://rnikhil275.github.io/2016/04/24/gsoc-2016/"/>
    <updated>2016-04-24T00:00:00+05:30</updated>
-   <id>http://rnikhil275.github.io/2016/04/24/GSoc-2016</id>
+   <id>http://rnikhil275.github.io/2016/04/24/gsoc-2016</id>
    <content type="html">&lt;p&gt;I will be working with &lt;a href=&quot;http://www.lua.inf.puc-rio.br/&quot;&gt;LabLua&lt;/a&gt; this summer as part of the &lt;a href=&quot;https://summerofcode.withgoogle.com/&quot;&gt;Google Summer of Code program&lt;/a&gt;. &lt;/p&gt;
 
 &lt;p&gt;My &lt;a href=&quot;https://summerofcode.withgoogle.com/projects/#6080944188424192&quot;&gt;Project&lt;/a&gt;
