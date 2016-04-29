@@ -1,5 +1,5 @@
   # Dependencies
-markdown:         redcarpet
+markdown:         kramdown
 rouge:         true
 
 # Permalinks
@@ -11,7 +11,7 @@ tagline:          ''
 description:      'test'
 url:              http://rnikhil275.github.io
 rss:              atom.xml
-
+gems: [jekyll-paginate]
 author:
   name:               'Nikhil. R'
   url:                http://rnikhil275.github.io/
