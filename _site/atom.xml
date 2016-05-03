@@ -4,13 +4,38 @@
  <title>Nikhil. R</title>
  <link href="http://rnikhil275.github.io/atom.xml" rel="self"/>
  <link href="http://rnikhil275.github.io/"/>
- <updated>2016-05-01T22:08:15+05:30</updated>
+ <updated>2016-05-03T21:22:29+05:30</updated>
  <id>http://rnikhil275.github.io</id>
  <author>
    <name>Nikhil. R</name>
    <email>rnikhil96@outlook.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Sailor MVC Framework</title>
+   <link href="http://rnikhil275.github.io/2016/05/03/sailor-mvc-lua/"/>
+   <updated>2016-05-03T00:00:00+05:30</updated>
+   <id>http://rnikhil275.github.io/2016/05/03/sailor-mvc-lua</id>
+   <content type="html">&lt;p&gt;Sailor is a web development framwork and all applications are structed in a MVC(Model-View-Controller) architure. It uses a Javascript virtual machine for use of Lua in the browser if required. An example of the JS Virtual Machine can be found &lt;a href=&quot;https://github.com/paulcuth/starlight&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compatible with Lua 5.1, Lua 5.2 and LuaJIT&lt;/li&gt;
+  &lt;li&gt;MVC Structure&lt;/li&gt;
+  &lt;li&gt;Routing&lt;/li&gt;
+  &lt;li&gt;Friendly URL’s&lt;/li&gt;
+  &lt;li&gt;Lua at Client using JS virtual machines deployed with the application&lt;/li&gt;
+  &lt;li&gt;Model generation from the database&lt;/li&gt;
+  &lt;li&gt;CRUD function generation using the models&lt;/li&gt;
+  &lt;li&gt;Validation module&lt;/li&gt;
+  &lt;li&gt;Object relational mapping(&lt;a href=&quot;https://en.wikipedia.org/wiki/Object-relational_mapping&quot;&gt;ORM&lt;/a&gt; layer for the database.)&lt;/li&gt;
+  &lt;li&gt;Form Generation&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Summer at LabLua !</title>
