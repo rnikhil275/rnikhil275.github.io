@@ -14,4 +14,5 @@
 - [x] Add custom CSS
 - [x] Add all profile links and icons
 - [ ] Edit About Page
-- [ ] Change Favicon 
+- [ ] Change Favicon
+- [ ] Shift from Clicky to Google Analytics
