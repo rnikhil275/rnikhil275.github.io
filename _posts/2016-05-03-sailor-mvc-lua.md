@@ -19,5 +19,6 @@ Sailor is a web development framwork and all applications are structed in a MVC(
 * Object relational mapping([ORM](https://en.wikipedia.org/wiki/Object-relational_mapping
 ) layer for the database.)
 * Form Generation
-
+* Integrated Themes and layouts
+* Runs on both *nix and windows
 
