@@ -13,6 +13,6 @@
 - [x] Add Gravatar
 - [x] Add custom CSS
 - [x] Add all profile links and icons
-- [ ] Edit About Page
+- [x] Edit About Page
 - [ ] Change Favicon
-- [ ] Shift from Clicky to Google Analytics
+- [x] Shift from Clicky to Google Analytics
