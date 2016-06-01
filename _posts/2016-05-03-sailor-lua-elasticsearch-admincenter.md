@@ -54,7 +54,6 @@ Sailor is a web development framwork and all applications are structed in a MVC(
 <dd><a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> is a search database server based on <a href="https://lucene.apache.org">Apache Lucene</a>. It can be used to search all kinds of documents. It provides scalable search, has near real-time search, and supports multitenancy(One instance of a software being shared by multiple users). <br> There is a low level client for this in lua called <a href="https://github.com/DhavalKapil/elasticsearch-lua">elasticsearch-lua</a> and I shall be integrating this into Sailor. Once done, you can search an elasticsearch instance using the form module in Sailor. </dd>
 </dl>
 
-Also read [this](https://rnikhil275.github.io/2016/04/24/gsoc-2016/)
 
 
 
