@@ -4,7 +4,7 @@
  <title>Nikhil. R</title>
  <link href="http://rnikhil275.github.io/atom.xml" rel="self"/>
  <link href="http://rnikhil275.github.io/"/>
- <updated>2016-05-03T21:29:36+05:30</updated>
+ <updated>2016-06-01T14:02:21+05:30</updated>
  <id>http://rnikhil275.github.io</id>
  <author>
    <name>Nikhil. R</name>
@@ -13,13 +13,38 @@
 
  
  <entry>
-   <title>Sailor MVC Framework</title>
-   <link href="http://rnikhil275.github.io/2016/05/03/sailor-mvc-lua/"/>
+   <title>What are you doing this summer ?</title>
+   <link href="http://rnikhil275.github.io/2016/05/03/sailor-lua-elasticsearch-admincenter/"/>
    <updated>2016-05-03T00:00:00+05:30</updated>
-   <id>http://rnikhil275.github.io/2016/05/03/sailor-mvc-lua</id>
-   <content type="html">&lt;p&gt;Sailor is a web development framwork and all applications are structed in a MVC(Model-View-Controller) architure. It uses a Javascript virtual machine for use of Lua in the browser if required. An example of the JS Virtual Machine can be found &lt;a href=&quot;https://github.com/paulcuth/starlight&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+   <id>http://rnikhil275.github.io/2016/05/03/sailor-lua-elasticsearch-admincenter</id>
+   <content type="html">&lt;p&gt;The main reason for this post is because, I got tired of people asking me to explain my project. I shall be explaining things in brief here.&lt;/p&gt;
 
-&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+&lt;h2 id=&quot;what-is-a-web-framework-&quot;&gt;What is a &lt;a href=&quot;&quot;&gt;Web Framework&lt;/a&gt; ?&lt;/h2&gt;
+
+&lt;p&gt;From Wikipedia,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A web framework (WF) or web application framework (WAF) is a software framework that is designed to support the development of web applications including web services, web resources and web APIs.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As it says, it’s basically used to remove the same redundant overhead associated with creating web applications. Most web applications have/do the follwing things&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Database access, mapping, configuration&lt;/li&gt;
+  &lt;li&gt;Session Management&lt;/li&gt;
+  &lt;li&gt;User Interfaces&lt;/li&gt;
+  &lt;li&gt;Secure authorization and authentication&lt;/li&gt;
+  &lt;li&gt;URL routing/mapping&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Web frameworks promote code re-use by providing easy ways to do the above mentioned stuff. They differ in each other in their architectural pattern, the most common one being the M(Database logic) V(User Interface) C(Business logic) &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC architecture&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I will be working on a Web Framework named &lt;a href=&quot;http://sailorproject.org/&quot;&gt;Sailor&lt;/a&gt; this summer.&lt;/p&gt;
+
+&lt;h2 id=&quot;sailor&quot;&gt;Sailor&lt;/h2&gt;
+&lt;p&gt;Sailor is a web development framwork and all applications are structed in a MVC(Model-View-Controller) architure. It uses a Javascript virtual machine for use of Lua in the browser if required. An example of the JS Virtual Machine can be found &lt;a href=&quot;https://github.com/paulcuth/starlight&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;features&quot;&gt;Features&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Compatible with Lua 5.1, Lua 5.2 and LuaJIT&lt;/li&gt;
@@ -32,7 +57,22 @@
   &lt;li&gt;Validation module&lt;/li&gt;
   &lt;li&gt;Object relational mapping(&lt;a href=&quot;https://en.wikipedia.org/wiki/Object-relational_mapping&quot;&gt;ORM&lt;/a&gt; layer for the database.)&lt;/li&gt;
   &lt;li&gt;Form Generation&lt;/li&gt;
+  &lt;li&gt;Integrated Themes and layouts&lt;/li&gt;
+  &lt;li&gt;Runs on both *nix and windows&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;What exactly am I doing for Sailor ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;Admin Center&lt;/dt&gt;
+&lt;dd&gt;Most web frameworks generally have an admin center for editing configuration files, making controllers, models etc. Sailor has autogenerator fucntions which create models and controllers for you. My task is to encompass a configuration file editor, the autogen functions inside a protected URL for use in development. &lt;/dd&gt;
+&lt;dt&gt;Elasticsearch Integration&lt;/dt&gt;
+&lt;dd&gt;&lt;a href=&quot;https://www.elastic.co/products/elasticsearch&quot;&gt;Elasticsearch&lt;/a&gt; is a search database server based on &lt;a href=&quot;https://lucene.apache.org&quot;&gt;Apache Lucene&lt;/a&gt;. It can be used to search all kinds of documents. It provides scalable search, has near real-time search, and supports multitenancy(One instance of a software being shared by multiple users). &lt;br /&gt; There is a low level client for this in lua called &lt;a href=&quot;https://github.com/DhavalKapil/elasticsearch-lua&quot;&gt;elasticsearch-lua&lt;/a&gt; and I shall be integrating this into Sailor. Once done, you can search an elasticsearch instance using the form module in Sailor. &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Also read &lt;a href=&quot;https://rnikhil275.github.io/2016/04/24/gsoc-2016/&quot;&gt;this&lt;/a&gt;&lt;/p&gt;
 
 </content>
  </entry>
