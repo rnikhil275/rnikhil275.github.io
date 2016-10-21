@@ -1,21 +1,10 @@
 ---
 layout: default
 ---
-
-<div class="header">
-    <h1>{{ site.name }}</h1>
-    <ul>
-        {% for item in site.data.navigation %}
-        <li>
-            <a href="{{ item.url }}">{{ item.title }}</a>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
 <div class="blog">
     <!-- <h2>Blog Posts:</h2> -->
     <ul>
-        {% for post in site.posts %}
+        {% for post in site.ramble %}
         <li>
             <span class="date">{{ post.date | date: '%Y %b %d' }}</span> - <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
