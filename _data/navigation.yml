@@ -1,5 +1,3 @@
-- title: about
-  url: /me
 
 - title: github
   url: https://github.com/rnikhil275
@@ -7,5 +5,5 @@
 - title: linkedin
   url: https://in.linkedin.com/in/rnikhil275
 
-- title: resume
-  url: /assets/resume.pdf
+- title: odds & ends
+  url: /ramble
