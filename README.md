@@ -1,18 +1,14 @@
-## This is my personal blog.
+# getmicah.github.io
+My blog made with [jekyll](http://jekyllrb.com) and hosted with Github Pages.
 
-- Source code for my blog. Uses [Jekyll][Jekyll]. [Lanyon][Lanyon] theme.
-- Hosted using [GitHub Pages][GitHub Pages].
 
-[Jekyll]: http://jekyllrb.com/
-[Lanyon]: https://github.com/poole/Lanyon/
-[GitHub Pages]: https://pages.github.com/
+### Install
 
-#To Do
+* fork this repository
+* edit the `_config.yml` with your info
+* change the links in `_data/navigation.yml`
+* remove my posts from `_posts/`
+* rename your repo to ***your-username*.github.io**
 
-- [x] Add Disqus comments
-- [x] Add Gravatar
-- [x] Add custom CSS
-- [x] Add all profile links and icons
-- [x] Edit About Page
-- [ ] Change Favicon
-- [x] Shift from Clicky to Google Analytics
+### License
+All this stuff is under the [MIT License](https://raw.githubusercontent.com/getmicah/getmicah.github.io/master/LICENSE)

@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html>
 
-  {% include head.html %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <body>
+    {% if page.title %}
+        <title>{{ page.title }}</title>
+    {% else %}
+        <title>{{ site.name }}</title>
+    {% endif %}
 
-    {% include sidebar.html %}
+    <meta name="description" content="{{ site.description }}">
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
-          </h3>
-        </div>
-      </div>
+    {% if site.google_verification %}
+        <meta name="google-site-verification" content="{{ site.google_verify }}">
+    {% endif %}
 
-      <div class="container content">
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
         {{ content }}
-        {% include comments.html %}
-
-      </div>
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-   
-  </body>
+</body>
+
 </html>
