@@ -26,7 +26,8 @@ I will be working on a Web Framework named [Sailor](http://sailorproject.org/) t
 {: .text-justify}## Sailor
 Sailor is a web development framework and all applications are structured in a MVC(Model-View-Controller) architecture. It uses a Javascript virtual machine for use of Lua in the browser if required. An example of the JS Virtual Machine can be found [here](https://github.com/paulcuth/starlight)
 {: .text-justify}
-### Features
+
+## Features
 <br>
 
 * Compatible with Lua 5.1, Lua 5.2 and LuaJIT
@@ -47,13 +48,13 @@ Sailor is a web development framework and all applications are structured in a M
 <strong>What exactly am I doing for Sailor ?</strong>
 
 
-# Centralized configuration editor
-
+## Centralized configuration editor
+<br>
 Most web frameworks generally have an admin center for editing configuration files, making controllers, models etc. Sailor has autogenerator fucntions which create models and controllers for you. My task is to encompass a configuration file editor, the autogen functions inside a protected environment for use in development.
 {: .text-justify}
 
-# Elasticsearch Integration
-
+## Elasticsearch Integration
+<br>
 <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> is a search database server based on <a href="https://lucene.apache.org">Apache Lucene</a>. It can be used to search all kinds of documents. It provides scalable search, has near real-time search, and supports multitenancy(One instance of a software being shared by multiple users). <br> There is a low level client for this in lua called <a href="https://github.com/DhavalKapil/elasticsearch-lua">elasticsearch-lua</a> and I shall be integrating this into Sailor. Once done, you can search an elasticsearch instance using the form module in Sailor. You can also use Elasticsearch indexes as Sailor Models.
 {: .text-justify}
 >
