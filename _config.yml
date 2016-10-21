@@ -19,6 +19,8 @@ exclude: ["README.md", "LICENSE"]
 sass:
   style: :compressed
   sass_dir: _sass
+gems:
+  - jekyll-sitemap
 
 
 # Markdown
