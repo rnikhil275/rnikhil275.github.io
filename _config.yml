@@ -1,10 +1,10 @@
 # Blog settings
-permalink: /blog/:title
+# permalink: /blog/:title
 
 
 # My variables
 name: Nikhil. R
-description: Raw ramble
+description: Raw Thoughts
 google_verification: null
 email: rnikhil96@outlook.com
 author: Nikhil. R
