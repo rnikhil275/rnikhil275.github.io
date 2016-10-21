@@ -18,5 +18,7 @@ layout: default
     <div class="post__content"?>
         {{ content }}
     </div>
-{%include comments.html%}
+	{% if page.comments %}
+{% include comments.html %}
+{% endif %}
 </div>
