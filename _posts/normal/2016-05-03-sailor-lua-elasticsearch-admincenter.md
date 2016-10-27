@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sailor - Lua Framework
+title: Lablua - Sailor Framework
 comments: True
 ---
 I will be working with Lablua as part of Google Summer of Code, 2016. I shall be extending the Sailor framework by adding an centralized configuration editor and adding integrations to facilitate Elasticsearch indexes to be stored as Sailor Models. Sailor is a Web Framework.
