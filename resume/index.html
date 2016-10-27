@@ -1,23 +1,19 @@
-<!DOCTYPE html>
----
-layout: default
----
 
 <html>
 <meta charset="UTF-8" />
-<title>Resume</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css"> 
- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"> 
- <link href="https://fonts.googleapis.com/css?family=Raleway:500,200,700" rel="stylesheet"> 
-<link href="resume.css" rel="stylesheet">
- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script> 
-<script src="resume.js"></script>
-
+<head>
+ <link rel="stylesheet" href="/assets/css/angular-material.min.css"> 
+ <link rel="stylesheet" href="/assets/css/font-awesome.min.css" > 
+ <link rel="stylesheet" href="/assets/css/test.css" > 
+<link rel="stylesheet" href="/assets/css/resume.css" >
+<script src="/assets/js/angular.min.js"></script>
+<script src="/assets/js/angular-animate.min.js"></script>
+<script src="/assets/js/angular-aria.min.js"></script>
+<script src="/assets/js/angular-messages.min.js"></script>
+<script src="/assets/js/angular-material.min.js"></script> 
+<script src="/assets/js/resume.js"></script>
+</head>
 <body ng-app="Resume" ng-cloak>
     <resume>
         <resume-heading first-name="Nikhil"
@@ -45,20 +41,20 @@ layout: default
                 <sidebar-category name="Coursework">
                     <p>Data Structures</p>
                     <p>Algorithms</p>
-                    <p>Programmings Langauges</p>
+                    <p>Crytography</p>
                     <p>Operating Systems</p>
-                    <p>Distributed Systems</p>
+                    <p>Software Defined Networking</p>
                     <p>Discrete Math</p>
                 </sidebar-category>
             </resume-column>
             <resume-column flex="80">
                 <category name="Professional Experience">
-                    <category-item title="Co-Founder" subtitle="Torch Studios">
-                        <li>Co-Founded company in 2015</li>
+                    <category-item title="Software Developer" subtitle="Google Summer of Code 2016">
+                        <li>Worked with Lablua on the Sailor Framework</li>
                         <li>Applies machine learning to customer purchase history for marketing materials</li>
                         <li>Featured on Product Hunt, clients include two Fourtune 500 companies</li>
                     </category-item>
-                    <category-item title="Software Development Intern" subtitle="AirBnB (Summer 2015)">
+                    <category-item title="Intern" subtitle="Vedanta Resources Ltd. (Summer 2015)">
                         <li>Worked in an Agile Environment on the iOS team with other interns</li>
                         <li>Used JIRA to collaborate with developers are on stories</li>
                         <li>Collaborated with other interns on design</li>
@@ -85,21 +81,25 @@ layout: default
                         <li>Implemented in Go and requires Docker 1.12 with Ceph on CoreOS</li>
                     </category-item>
                 </category>
-                <category name="Skills">
-                    <category-item title="Web Development">
+                <category name="Technologies">
+                      <!--<category-item title="Technologies">-->
+                        <li><strong>Interested in</strong> Software Development, Web application & OS security, SDN</li>
+                        <li><strong>Programming</strong> Python \ PHP \ C \ Lua</li>
+                        <li><strong>Databases</strong> MongoDB \ MySQL \ PostgreSQL \ Redis</li>
+                    <!--</category-item>-->
+                    </category>
+                    <category name="Achievements">
+                    <!--<category-item title="Achievements">-->
                         <li><strong>Dank Memes</strong> I can find the deepest, dankest memes out there on the inerwebs</li>
                         <li><strong>Distributed Systems</strong> I only run my apps on Kubernetes and a CoreOS cluster</li>
                         <li><strong>Tooling</strong> I literally treat Dan Abromov's Twitter as holy gospel</li>
                         <li><strong>Frameworks</strong> React, Redux, Reselect, Redankmeme, Revenant, Angular</li>
-                    </category-item>
-                    <category-item title="Technologies">
-                        <li><strong>Experienced With</strong> Web &amp; Hybrid App Development \ Functional Programming</li>
-                        <li><strong>Programming</strong> Javascript \ Scala \ Python \ PHP \ C \ Java</li>
-                        <li><strong>Databases</strong> RethinkDB \ MongoDB \ MySQL \ PostgreSQL \ Redis</li>
-                    </category-item>
-                </category>
+                    <!--</category-item>-->
+                    </category>
+                <!--</category>-->
             </resume-column>
         </resume-body>
     </resume>
 </body>
+
 </html>
