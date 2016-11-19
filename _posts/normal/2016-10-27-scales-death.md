@@ -16,7 +16,7 @@ These have now been de-classified and they make for an interesting visual pictur
 ## People who defined new scales of destruction and innovation
 
 {: .center}
-![My helpful screenshot]({{ site.url }}/assets/img/faces.png)
+![Image]({{ site.url }}/assets/img/faces.png)
 {: .text-justify}
 
 The complete image with links to names can be found here:
