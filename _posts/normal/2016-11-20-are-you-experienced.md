@@ -4,6 +4,7 @@ title: Are You Experienced ?
 comments: True
 ---
 
+Now Playing: Purple Haze
 
 {: .center}
 ![Image]({{ site.url }}/assets/img/hendrix.gif)
