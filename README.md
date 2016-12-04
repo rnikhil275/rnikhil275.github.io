@@ -14,3 +14,4 @@ This site is made with [jekyll](http://jekyllrb.com) and hosted with Github Page
 
 ### License
 All this stuff is under the [GNU AGPLv3](http://choosealicense.com/licenses/agpl-3.0/)
+signed
