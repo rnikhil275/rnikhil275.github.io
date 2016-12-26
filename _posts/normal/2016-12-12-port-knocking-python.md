@@ -4,6 +4,8 @@ title: A Secure Portknocking Implementation - Portsmith
 comments: True
 ---
 
+[Source](https://github.com/rnikhil275/Portsmith)
+
 <a href="https://en.wikipedia.org/wiki/Port_knocking">Port Knocking</a> is a concept where the ports on a particular computer appear to be closed until a special packet/port knock sequence is established. It is a method of externally opening ports in a system by doing a sequence of connection attempts on a set of pre-specified closed ports. Once a correct sequence of connection attempts is made, the firewall rules are dynamically modified to allow the external system to connect to a specified port. This concept has been around for a long time and you can check out some implementations <a href = "http://www.portknocking.org/view/implementations">here.</a> 
 
 # Why ?
@@ -34,6 +36,7 @@ After this, the server can start listening for knocks.
 
 The Knocker:
 I use hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required open is then opened for the sourceIP using a custom iptables command. 
+
 
 # TODO
 
