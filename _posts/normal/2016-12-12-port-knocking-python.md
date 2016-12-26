@@ -20,7 +20,13 @@ The purpose of this was to prevent port scanners from scanning target systems fo
 
 ## Server side:
 
+Requirements:
+* Python 3
+* Cryptography module ( this need OpenSSL too)
+
 Instead of making the client ping a couple of ports, I decided to close all ports and log all connection attempts to these firewalled ports to /var/log/kern.log. I parse kern.log to to find my encrypted packet and authorize clients. 
+
+There is a small script running a bunch of iptables command to close all ports and reject all incoming connections.
 
 First step would be creating keys for each client. I call this profiles. One user can have multiple laptops connecting to the same server.
 
@@ -32,9 +38,15 @@ The encryption key is a URL-safe base64-encoded 32-byte key. This must be kept s
 
 After this, the server can start listening for knocks. 
 
+	sudo python3 server.py
+
+
 ## Client side:
 
 The Knocker:
+	
+	sudo python3 knocker.py portToOpen host
+
 I use hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required open is then opened for the sourceIP using a custom iptables command. 
 
 
