@@ -6,6 +6,7 @@ comments: True
 
 [Source](https://github.com/rnikhil275/Portsmith)
 
+
 <a href="https://en.wikipedia.org/wiki/Port_knocking">Port Knocking</a> is a concept where the ports on a particular computer appear to be closed until a special packet/port knock sequence is established. It is a method of externally opening ports in a system by doing a sequence of connection attempts on a set of pre-specified closed ports. Once a correct sequence of connection attempts is made, the firewall rules are dynamically modified to allow the external system to connect to a specified port. This concept has been around for a long time and you can check out some implementations <a href = "http://www.portknocking.org/view/implementations">here.</a> 
 
 # Why ?
@@ -17,6 +18,8 @@ Anyway, I decided to do something about it and when searching for a method to ob
 The purpose of this was to prevent port scanners from scanning target systems for exploitable services. The ports appear closed unless the attacker sends the correct knock sequence/packet to the machine. Initially, it was supposed to be a series of connection attempts or knocks on a series of ports but this kind of mechanism was vulnerable to replay attacks. A person watching the network could easily figure out which ports are knocking before a connection is established. 
 
 # Implementation
+
+Warning: This project is not ready to be used in production. This is version 0.1(alpha). There are still bugs to be fixed and edge cases to be handled. I would continue working on this in my free time.
 
 ## Server side:
 
