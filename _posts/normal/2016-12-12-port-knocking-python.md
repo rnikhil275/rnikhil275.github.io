@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Port Knocking - Portsmith
+title: A Secure Portknocking Implementation - Portsmith
 comments: True
 ---
 
@@ -24,7 +24,7 @@ First step would be creating keys for each client. I call this profiles. One use
 
 	sudo python3 create-profile.py profilename portnumber
 
-This create a folder at '/etc/portsmith.d' and also a subfolder with the profile name. The subfolder contains two files. One is the encryption key which must be kept secret and other is the knockPort which the client has to knock.
+This creates a folder at '/etc/portsmith.d' and also a subfolder with the profile name. The subfolder contains two files. One is the encryption key which must be kept secret and other is the knockPort which the client has to knock.
 
 The encryption key is a URL-safe base64-encoded 32-byte key. This must be kept secret. Anyone with this key will be able to create and read messages. This folder has to be transferred to the client computer securely using 'scp' or some other method.
 
@@ -35,13 +35,9 @@ After this, the server can start listening for knocks.
 The Knocker:
 I use hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required open is then opened for the sourceIP using a custom iptables command. 
 
-# Why is this necessary ?
-Portsmith Features:
-
-
 # TODO
 
-1)It currently uses <a href = "https://cryptography.io/en/latest/fernet/"> Fernet </a> Symmetric Encryption Library from the cryptography package. It's source and spec can be found [here](https://cryptography.io/en/latest/_modules/cryptography/fernet/) and [here](https://github.com/fernet/spec/blob/master/Spec.md) respectively. It uses:
+1) It currently uses <a href = "https://cryptography.io/en/latest/fernet/"> Fernet </a> Symmetric Encryption Library from the cryptography package. It's source and spec can be found [here](https://cryptography.io/en/latest/_modules/cryptography/fernet/) and [here](https://github.com/fernet/spec/blob/master/Spec.md) respectively. It uses:
 *	AES in CBC mode with a 128 bit key for encryption; using PKCS7 for padding
 * 	HMAC using SHA256 for authentication
 
@@ -60,3 +56,4 @@ This is a high level library. I would like to rewrite the cryptomethods using cr
 7) I had implemented a simple socks proxy. It performs the required knocks, makes sure the port gets opened before sending the application data to the particular server. Any application supporting socks proxy could technically use it but I couldn't get it to work properly. Work on the proxy.
 
 7) REWRITE as a kernel module ???? 
+
