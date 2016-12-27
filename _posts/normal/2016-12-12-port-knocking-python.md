@@ -24,6 +24,7 @@ Warning: This project is not ready to be used in production. This is version 0.1
 ## Server side:
 
 Requirements:
+
 * Python 3
 * Cryptography module ( this need OpenSSL too)
 
