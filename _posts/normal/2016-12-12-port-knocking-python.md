@@ -59,6 +59,7 @@ As you can see above, there is hardly any complex logic involved in PortKnocking
 # TODO
 
 1) It currently uses <a href = "https://cryptography.io/en/latest/fernet/"> Fernet </a> Symmetric Encryption Library from the cryptography package. It's source and spec can be found [here](https://cryptography.io/en/latest/_modules/cryptography/fernet/) and [here](https://github.com/fernet/spec/blob/master/Spec.md) respectively. It uses:
+
 *	AES in CBC mode with a 128 bit key for encryption; using PKCS7 for padding
 * 	HMAC using SHA256 for authentication
 
@@ -76,5 +77,5 @@ This is a high level library. I would like to rewrite the cryptomethods using cr
 
 7) I had implemented a simple socks proxy. It performs the required knocks, makes sure the port gets opened before sending the application data to the particular server. Any application supporting socks proxy could technically use it but I couldn't get it to work properly. Work on the proxy.
 
-7) REWRITE as a kernel module ???? 
+7) REWRITE as a kernel module ???? I remember seeing a patch for the linux kernel implementing Portknocking somewhere. Would be amazing if someone could link me to it. 
 
