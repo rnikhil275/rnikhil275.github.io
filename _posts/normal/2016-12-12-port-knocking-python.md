@@ -28,7 +28,7 @@ Requirements:
 * Python 3
 * Cryptography module ( this need OpenSSL too)
 
-Instead of making the client ping a couple of ports, I decided to close all ports and log all connection attempts to these firewalled ports to /var/log/kern.log. I parse kern.log to to find my encrypted packet and authorize clients. 
+Instead of making the client ping a couple of ports, I decided to close all ports and log all connection attempts to these firewalled ports to /var/log/kern.log. I plan to send one encrypted packet to the server which contains the details for the port to be opened. I parse kern.log to to find my encrypted packet and authorize clients. 
 
 There is a small script running a bunch of iptables command to close all ports and reject all incoming connections.
 
@@ -53,6 +53,8 @@ The Knocker:
 
 I use hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required open is then opened for the sourceIP using a custom iptables command. 
 
+
+As you can see above, there is hardly any complex logic involved in PortKnocking. There are implementations ranging from simple bash scripts to fully featured C servers which inspect all incoming packets using libpcap. I didn't want an another extra network service running since this is against the whole point of PortKnocking in the first place. 
 
 # TODO
 
