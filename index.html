@@ -19,7 +19,7 @@ layout: default
     <ul>
         {% for post in site.posts %}
         {% if post.secondary == null %}
-        {% if post.ready == null % }
+        {% if post.ready == null %}
         <li>
             <span class="date">{{ post.date | date: '%Y %b %d' }}</span> - <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
