@@ -1,6 +1,6 @@
 ---
 layout: post
-title: microstrace - A strace like tool
+title: Build a tracer with ptrace
 comments: True
 ---
 
@@ -18,4 +18,4 @@ why strace
 	find which config file a program uses
 	sandboxing - find which all shared libs a program uses
 	common example for sniffing password: ssh process pass the incoming pass to the main sshd process
-	
+
