@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cryptopals Challenges Set 1 Solutions
-comments: False
+comments: True
 ---
 
 # Set 1 - Basics
