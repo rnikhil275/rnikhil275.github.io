@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Long Resume/Life
+comments: True
 ---
 
 # Education
@@ -81,10 +82,17 @@ Implemented a Carrier Sense Multiple access with collision avoidance (CSMS/CA) l
 * Databases: MySQL, MongoDB, Redis, Elasticsearch
 * Operating Systems: Linux, Windows
 * DevOps: AWS, Git, Ansible, Docker, Heroku
-* Reversing Tools: OllyDBG, gdb, Bless(hex editor), Hopper Disassembler
+* Reversing Tools: OllyDBG, GDB, Bless(hex editor), Hopper Disassembler
 
 
 
 # Talks
-# positions of responsibility
+
+Gave a talk on MVC Web Framework and Google Summer of Code to a crowd of enthusiastic people at BITS Pilani, Pilani Campus.
+
+# Positions of Responsibility
+
+* Technical Lead SSMS BITS Pilani ( April 2015 - May 2016).
+* Core Member, Department of Informalz responsible for organizing and conducting fun events in all the major festivals at BITS Pilani, Pilani Campus.
+* Member of Team Inspired Karters which builds an off-road vehicle for participating in BAJA-SAE(ATV Racing) around the globe.
 
