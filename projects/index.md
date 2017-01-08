@@ -87,7 +87,6 @@ Implemented a Carrier Sense Multiple access with collision avoidance (CSMS/CA) l
 * Database Systems
 * Object Oriented Programming
 
-
 # Skills
 
 * Programming Languages: Proficient in C, Python, Lua and PHP. Familiar with x86 Assembly, Javascript and HTML/CSS. 
@@ -97,17 +96,16 @@ Implemented a Carrier Sense Multiple access with collision avoidance (CSMS/CA) l
 * DevOps: AWS, Git, Ansible, Docker, Heroku
 * Reversing Tools: OllyDBG, GDB, Bless(hex editor), Hopper Disassembler
 
-
-
 # Talks
 
-Gave a talk on MVC Web Framework and Google Summer of Code to a crowd of enthusiastic people at BITS Pilani, Pilani Campus.
+Gave a talk on MVC Web Frameworks and Google Summer of Code to a crowd of enthusiastic people at BITS Pilani, Pilani Campus.
 
 # Positions of Responsibility
 
 * Technical Lead SSMS BITS Pilani ( April 2015 - May 2016).
 * Core Member, Department of Informalz responsible for organizing and conducting fun events in all the major festivals at BITS Pilani, Pilani Campus.
 * Member of Team Inspired Karters which builds an off-road vehicle for participating in BAJA-SAE(ATV Racing) around the globe.
+* Member of National Service Scheme, Pilani, Incharge of the Computer Literacy Programme for under privileged kids in and around Pilani.
 
 # Other Activities and Interests
 
