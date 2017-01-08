@@ -51,7 +51,7 @@ The Knocker:
 	
 	sudo python3 knocker.py portToOpen host
 
-I use hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required open is then opened for the sourceIP using a custom iptables command. 
+I use hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required port is then opened for the sourceIP using a custom iptables command. 
 
 
 As you can see above, there is hardly any complex logic involved in PortKnocking. There are implementations ranging from simple bash scripts to fully featured C servers which inspect all incoming packets using libpcap. I didn't want an another extra network service running since this is against the whole point of PortKnocking in the first place. 

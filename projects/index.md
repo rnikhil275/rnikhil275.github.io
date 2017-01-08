@@ -6,11 +6,10 @@ title: Long Resume/Life
 # Education
 
 * M.Sc Economics and B.E Manufacturing at Birla Institute of Technology and Science Pilani, Pilani Campus graduating May 2018
-* Higher secondary: Narayana Junior College (M.P & E.V English Medium School)
-* Secondary school: The Hindu Colony of Chellammal Vidyalaya
+* Higher Secondary School: Narayana Junior College (M.P & E.V English Medium School), Visakapattinam
+* Secondary School: The Hindu Colony Chellammal Vidyalaya Senior Secondary School, Chennai
 
 # Work experience
-
 
 * **Google Summer of Code 2016 with LabLua - Sailor Web Framework**
 
@@ -32,6 +31,20 @@ Technologies Used : LAMP stack.
 
 # Projects
 
+* **Portsmith**
+
+A secure Port Knocking Implementation in Python using single packet authorization. Uses TCP and IND-CCA secure requests to open a port on the server. Uses hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required port is then opened for the sourceIP using a custom iptables command. There is also an integrated SOCKS proxy to perform knocks before routing application traffic. Currently working on a kernel module implementation using Netfilter hooks, nftables and cryptographic primitives instead of high level libraries.
+
+Technologies Used: Python, Cryptography Library( Fernet Symmetric Encryption )
+
+* **PintOS**
+
+Extended the OS by adding virtual memory, message passing queues, POSIX threads and OS-level semaphores. Implemented "fork" and "exec" system calls and the ability to run user program. Implemented indexed filesystem, hierarchical directory structure and buffer cache.
+
+* **DoctorsNow**
+
+Built the entire appointment booking and video calling system for doctors and patients. Patients can schedule appointments in advance, book slots for video calling and review their previous visits. 
+Written in PHP, used Slim Framework for routing and templating, WebRTC for the video calls
 
 
 # Other Activities
@@ -39,7 +52,7 @@ Technologies Used : LAMP stack.
 * Baja
 
 # Coursework
-# PUblications
+# Publications
 # awards achievements
 # Interests
 
