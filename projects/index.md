@@ -3,6 +3,7 @@ layout: post
 title: Resume
 comments: True
 ---
+For a single page resume click [here](/resume)
 
 # Education
 
