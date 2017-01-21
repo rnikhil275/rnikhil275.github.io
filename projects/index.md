@@ -3,7 +3,7 @@ layout: post
 title: Resume
 comments: True
 ---
-For a single page resume click [here](/resume)
+For a single page resume click [here](/resume)<br>
 For the linkedin profile click [here](https://in.linkedin.com/in/rnikhil275)
 
 # Education
