@@ -115,4 +115,4 @@ I reverse small binaries(crackmes) and play CTF's in my free time.
 # Awards and Achievements
 
 * Top 0.1% in JEE Mains 2013
-* Best outgoing student award in secondary school for scoring 10 points. 
+* Best outgoing student award in secondary school for scoring a perfect 10 in CBSE exams. 
