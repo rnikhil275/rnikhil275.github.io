@@ -2,7 +2,6 @@
 layout: post
 title: Another Blog - pwndot
 comments: True
-ready: True
 ---
 
 #pwndot
