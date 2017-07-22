@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: home
 title: Build a tracer with ptrace - microTracer
 comments: True
 ready: False

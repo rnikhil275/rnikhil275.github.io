@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: home
 title: Lablua - Sailor Framework
 comments: True
 ---

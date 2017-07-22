@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: home
 title: Cryptopals Challenges Set 1 Solutions
 comments: True
 ready: False
