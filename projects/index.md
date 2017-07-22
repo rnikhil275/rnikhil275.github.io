@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Resume
+title: Projects
 comments: True
 ---
 For a single page resume click [here](/resume)<br>
