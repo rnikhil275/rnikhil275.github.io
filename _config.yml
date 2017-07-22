@@ -1,0 +1,13 @@
+title: Nikhil. R
+author: Nikhil. R
+description: Place to hang my ramblings
+
+highlighter: null
+permalink: /:title
+
+url:
+baseurl:
+
+Custom options:
+color_scheme: azul|ruby|amber|avocado
+color_scheme: azul
