@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <description></description>
+    <language>en-us</language>
+    <pubDate>Sat, 22 Jul 2017 10:34:16 +0530</pubDate>
+    <lastBuildDate>Sat, 22 Jul 2017 10:34:16 +0530</lastBuildDate>
+
+    
+      <item>
+        <title>Another Blog - pwndot</title>
+        <link>http://localhost:4000/another-blog-pwndot-wordpress</link>
+        <pubDate>Sun, 02 Apr 2017 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;p&gt;#pwndot&lt;/p&gt;
+
+&lt;p&gt;I moving some selected posts and all infosec related ramblings into another blog where I hope to post more frequenlty. I don’t always want the flexibility offered by Jekyll, but rather a simple blogging tool to write posts and publish fast. The decision came into being after I noticed the huge number of drafts I have saved here without publishing.&lt;/p&gt;
+
+&lt;p&gt;This site is now dedicated to general non technical musings and for my resume/projects.&lt;/p&gt;
+
+</description>
+      </item>
+    
+      <item>
+        <title>Build a tracer with ptrace - microTracer</title>
+        <link>http://localhost:4000/strace-internals-clone</link>
+        <pubDate>Sun, 01 Jan 2017 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;p&gt;I wanted to get to know how strace works and to really understand it’s working, I decided to write my own implementation which does what strace does although on a simple level. I won’t be explaining about what strace does because there are like a million entries on the Internet which explain the same. I shall be explaining about my implementation.&lt;/p&gt;
+
+&lt;h1 id=&quot;microstrace&quot;&gt;Microstrace&lt;/h1&gt;
+
+&lt;p&gt;understand how strace interjects itself between kernel and the userspace program
+ptrace system call
+	trace system call
+	write and read from registers and memory
+	manipulate signal delivery to the process
+	used by gdb also
+why strace 
+	find which config file a program uses
+	sandboxing - find which all shared libs a program uses
+	common example for sniffing password: ssh process pass the incoming pass to the main sshd process&lt;/p&gt;
+
+</description>
+      </item>
+    
+      <item>
+        <title>A Secure Portknocking Implementation - Portsmith</title>
+        <link>http://localhost:4000/port-knocking-python</link>
+        <pubDate>Mon, 12 Dec 2016 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/rnikhil275/Portsmith&quot;&gt;Source&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Port_knocking&quot;&gt;Port Knocking&lt;/a&gt; is a concept where the ports on a particular computer appear to be closed until a special packet/port knock sequence is established. It is a method of externally opening ports in a system by doing a sequence of connection attempts on a set of pre-specified closed ports. Once a correct sequence of connection attempts is made, the firewall rules are dynamically modified to allow the external system to connect to a specified port. This concept has been around for a long time and you can check out some implementations &lt;a href=&quot;http://www.portknocking.org/view/implementations&quot;&gt;here.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;why-&quot;&gt;Why ?&lt;/h1&gt;
+
+&lt;p&gt;I had a server on Digital Ocean(DO) which kept getting pwned and used for DDosing some poor soul. DO used to shut down networking for my node every four days or so. At least I think this was the case since I had some unauthenticated services running on it. I was using the server as a proxy with an open port on the server at all times. Maybe a botnet was spreading by scanning the network for vulnerable hosts and then exploiting them ? I am not sure. DO has to figure that out.&lt;/p&gt;
+
+&lt;p&gt;Anyway, I decided to do something about it and when searching for a method to obscure networking services, I found PortKnocking.&lt;/p&gt;
+
+&lt;p&gt;The purpose of this was to prevent port scanners from scanning target systems for exploitable services. The ports appear closed unless the attacker sends the correct knock sequence/packet to the machine. Initially, it was supposed to be a series of connection attempts or knocks on a series of ports but this kind of mechanism was vulnerable to replay attacks. A person watching the network could easily figure out which ports are knocking before a connection is established.&lt;/p&gt;
+
+&lt;h1 id=&quot;implementation&quot;&gt;Implementation&lt;/h1&gt;
+
+&lt;p&gt;Warning: This project is not ready to be used in production. This is version 0.1(alpha). There are still bugs to be fixed and edge cases to be handled. I would continue working on this in my free time.&lt;/p&gt;
+
+&lt;h2 id=&quot;server-side&quot;&gt;Server side:&lt;/h2&gt;
+
+&lt;p&gt;Requirements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Python 3&lt;/li&gt;
+  &lt;li&gt;Cryptography module ( this need OpenSSL too)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Instead of making the client ping a couple of ports, I decided to close all ports and log all connection attempts to these firewalled ports to /var/log/kern.log. I plan to send one encrypted packet to the server which contains the details for the port to be opened. I parse kern.log to to find my encrypted packet and authorize clients.&lt;/p&gt;
+
+&lt;p&gt;There is a small script running a bunch of iptables command to close all ports and reject all incoming connections.&lt;/p&gt;
+
+&lt;p&gt;First step would be creating keys for each client. I call this profiles. One user can have multiple laptops connecting to the same server.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo python3 create-profile.py profilename portnumber
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This creates a folder at ‘/etc/portsmith.d’ and also a subfolder with the profile name. The subfolder contains two files. One is the encryption key which must be kept secret and other is the knockPort which the client has to knock.&lt;/p&gt;
+
+&lt;p&gt;The encryption key is a URL-safe base64-encoded 32-byte key. This must be kept secret. Anyone with this key will be able to create and read messages. This folder has to be transferred to the client computer securely using ‘scp’ or some other method.&lt;/p&gt;
+
+&lt;p&gt;After this, the server can start listening for knocks.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo python3 server.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;client-side&quot;&gt;Client side:&lt;/h2&gt;
+
+&lt;p&gt;The Knocker:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo python3 knocker.py portToOpen host
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I use hping3 to craft TCP packets. The knock packet is encrypted using the key transferred from the server and then sent to the knockport. It gets logged into kern.log which is read by Portsmith. It is then decrypted and the required port is then opened for the sourceIP using a custom iptables command.&lt;/p&gt;
+
+&lt;p&gt;As you can see above, there is hardly any complex logic involved in PortKnocking. There are implementations ranging from simple bash scripts to fully featured C servers which inspect all incoming packets using libpcap. I didn’t want an another extra network service running since this is against the whole point of PortKnocking in the first place.&lt;/p&gt;
+
+&lt;h1 id=&quot;todo&quot;&gt;TODO&lt;/h1&gt;
+
+&lt;p&gt;1) It currently uses &lt;a href=&quot;https://cryptography.io/en/latest/fernet/&quot;&gt; Fernet &lt;/a&gt; Symmetric Encryption Library from the cryptography package. It’s source and spec can be found &lt;a href=&quot;https://cryptography.io/en/latest/_modules/cryptography/fernet/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://github.com/fernet/spec/blob/master/Spec.md&quot;&gt;here&lt;/a&gt; respectively. It uses:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;AES in CBC mode with a 128 bit key for encryption; using PKCS7 for padding&lt;/li&gt;
+  &lt;li&gt;HMAC using SHA256 for authentication&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is a high level library. I would like to rewrite the cryptomethods using cryptographic.primitives instead. Maybe try out AES in CTR mode ? Either way, the crypto methods are going to be rewritten using low level (hazmat :P) functions. I think this would be good learning experience.&lt;/p&gt;
+
+&lt;p&gt;2) Support for multiple profiles on the server. This is almost done.&lt;/p&gt;
+
+&lt;p&gt;3) Check and add user permissions when accessing directories, running system commands and changing iptables rules.&lt;/p&gt;
+
+&lt;p&gt;4) Fork out the code which has to be run as root and separate it. This would increase security and take the project closer to be used in production.&lt;/p&gt;
+
+&lt;p&gt;5) Right now, it only opens ports. It should also close ports after a specified window if there is no successful connection. Also, handle a lot of exceptions and edge cases.&lt;/p&gt;
+
+&lt;p&gt;6) Make a daemon for running on the server.&lt;/p&gt;
+
+&lt;p&gt;7) I had implemented a simple socks proxy. It performs the required knocks, makes sure the port gets opened before sending the application data to the particular server. Any application supporting socks proxy could technically use it but I couldn’t get it to work properly. Work on the proxy.&lt;/p&gt;
+
+&lt;p&gt;7) REWRITE as a kernel module ???? I remember seeing a patch for the linux kernel implementing Portknocking somewhere. Would be amazing if someone could link me to it.&lt;/p&gt;
+
+</description>
+      </item>
+    
+      <item>
+        <title>Are You Experienced ?</title>
+        <link>http://localhost:4000/are-you-experienced</link>
+        <pubDate>Sun, 20 Nov 2016 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;p&gt;Now Playing: Purple Haze&lt;/p&gt;
+
+&lt;p class=&quot;center text-justify&quot;&gt;&lt;img src=&quot;http://localhost:4000/assets/img/hendrix.gif&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;center&quot;&gt;&lt;img src=&quot;http://localhost:4000/assets/img/hendix1.jpg&quot; alt=&quot;Images&quot; /&gt;&lt;/p&gt;
+
+&lt;audio autoplay=&quot;&quot;&gt;
+  &lt;source src=&quot;https://rnikhil275.github.io/assets/song.mp3&quot; type=&quot;audio/mpeg&quot; /&gt;
+&lt;/audio&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>Defining new scales of death</title>
+        <link>http://localhost:4000/scales-death</link>
+        <pubDate>Thu, 27 Oct 2016 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;h1 id=&quot;project-y&quot;&gt;Project Y&lt;/h1&gt;
+
+&lt;p class=&quot;text-justify&quot;&gt;At Los Alamos, during the Manhattan Project (called Project Y at that time) the entire squadron of people were handed over Badges. They had a strict policy of not allowing people without their badges and they were also color coded to define the access level permissible.&lt;/p&gt;
+
+&lt;p class=&quot;text-justify&quot;&gt;These have now been de-classified and they make for an interesting visual picture of Los Alamos at that time.&lt;/p&gt;
+
+&lt;h2 id=&quot;people-who-defined-new-scales-of-destruction-and-innovation&quot;&gt;People who defined new scales of destruction and innovation&lt;/h2&gt;
+
+&lt;p class=&quot;center text-justify&quot;&gt;&lt;img src=&quot;http://localhost:4000/assets/img/faces.png&quot; alt=&quot;Image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The complete image with links to names can be found here:
+&lt;a href=&quot;http://blog.nuclearsecrecy.com/misc/faces-of-project-y/&quot;&gt;http://blog.nuclearsecrecy.com/misc/faces-of-project-y/&lt;/a&gt;&lt;/p&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>Cryptopals Challenges Set 1 Solutions</title>
+        <link>http://localhost:4000/cryptopals-challenges-set-1</link>
+        <pubDate>Fri, 09 Sep 2016 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;h1 id=&quot;set-1---basics&quot;&gt;Set 1 - Basics&lt;/h1&gt;
+
+&lt;p&gt;These are my solution to the first set of 8 problems which are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Convert hex to base64&lt;/li&gt;
+  &lt;li&gt;Fixed XOR&lt;/li&gt;
+  &lt;li&gt;Single-byte XOR cipher&lt;/li&gt;
+  &lt;li&gt;Detect single-character XOR&lt;/li&gt;
+  &lt;li&gt;Implement repeating-key XOR&lt;/li&gt;
+  &lt;li&gt;Break repeating-key XOR&lt;/li&gt;
+  &lt;li&gt;AES in ECB mode&lt;/li&gt;
+  &lt;li&gt;Detect AES in ECB mode&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I have linked the problem’s actual page in the headings. Read them before going to the solution. I also suggest that you solve these on your own first before looking at solutions.&lt;/p&gt;
+
+&lt;p&gt;1) &lt;a href=&quot;https://cryptopals.com/sets/1/challenges/1&quot;&gt;Convert hex to base64&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What we are initially given is a hexadecimal representation of the binary data which can be converted to raw bytes using the binascii module’s unhexlify function. Now that we have the raw bytes, we just need to use base64 encoding to represent them and then convert to string for comparing with the solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/rnikhil275/crytopals-solutions/blob/master/set-1/1.py&quot;&gt;Solution Here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2) &lt;a href=&quot;https://cryptopals.com/sets/1/challenges/2&quot;&gt;Fixed XOR&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Strings in Python 3 are unicode objects. Converting the strings to base 16 integers, XORing them, then converting back gives us the solution&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/rnikhil275/crytopals-solutions/blob/master/set-1/2.py&quot;&gt;Solution Here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;3) &lt;a href=&quot;https://cryptopals.com/sets/1/challenges/3&quot;&gt;Single-byte XOR cipher&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We are again given an hex encoded string but this time, it has already been XOR’d against a single character. The Goal is to find the key and decrypt the message.&lt;/p&gt;
+
+&lt;p&gt;The first challenges were mainly warm ups and this one actually involves breaking a (simple) cipher. We could brute force it but as suggested in the challenges page, let’s use character frequency as a metric to break this. I found  a statistical distribution for English text &lt;a href=&quot;http://www.data-compression.com/english.html&quot;&gt;here&lt;/a&gt;. Since this XOR operation modifies modifies each byte by the same amount, the frequency distribution won’t change.&lt;/p&gt;
+
+&lt;p&gt;I got some erros while decodes bytes objects into ‘utf-8’ but when I set it to ignore, I nevertheless got the answer. I should look into this again.&lt;/p&gt;
+
+</description>
+      </item>
+    
+      <item>
+        <title>Lablua - Sailor Framework</title>
+        <link>http://localhost:4000/sailor-lua-elasticsearch-admincenter</link>
+        <pubDate>Tue, 03 May 2016 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;p class=&quot;text-justify&quot;&gt;I will be working with Lablua as part of Google Summer of Code, 2016. I shall be extending the Sailor framework by adding an centralized configuration editor and adding integrations to facilitate Elasticsearch indexes to be stored as Sailor Models. Sailor is a Web Framework.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-a-web-framework-&quot;&gt;What is a &lt;a href=&quot;&quot;&gt;Web Framework&lt;/a&gt; ?&lt;/h2&gt;
+
+&lt;p&gt;From Wikipedia,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;A web framework (WF) or web application framework (WAF) is a software framework that is designed to support the development of web applications including web services, web resources and web APIs.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p class=&quot;text-justify&quot;&gt;As it says, it’s basically used to remove the same redundant overhead associated with creating web applications. Most web applications have/do the following things&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Database access, mapping, configuration&lt;/li&gt;
+  &lt;li&gt;Session Management&lt;/li&gt;
+  &lt;li&gt;User Interfaces&lt;/li&gt;
+  &lt;li&gt;Secure authorization and authentication&lt;/li&gt;
+  &lt;li&gt;URL routing/mapping&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;text-justify&quot;&gt;Web frameworks promote code re-use by providing easy ways to do the above mentioned stuff. They differ in each other in their architectural pattern, the most common one being the M(Database logic) V(User Interface) C(Business logic) &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot;&gt;MVC architecture&lt;/a&gt;.&lt;/p&gt;
+&lt;p class=&quot;text-justify&quot;&gt;I will be working on a Web Framework named &lt;a href=&quot;http://sailorproject.org/&quot;&gt;Sailor&lt;/a&gt; this summer.
+{: .text-justify}## Sailor
+Sailor is a web development framework and all applications are structured in a MVC(Model-View-Controller) architecture. It uses a Javascript virtual machine for use of Lua in the browser if required. An example of the JS Virtual Machine can be found &lt;a href=&quot;https://github.com/paulcuth/starlight&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compatible with Lua 5.1, Lua 5.2 and LuaJIT&lt;/li&gt;
+  &lt;li&gt;MVC Structure&lt;/li&gt;
+  &lt;li&gt;Routing&lt;/li&gt;
+  &lt;li&gt;Friendly URL’s&lt;/li&gt;
+  &lt;li&gt;Lua at Client using JS virtual machines deployed with the application&lt;/li&gt;
+  &lt;li&gt;Model generation from the database&lt;/li&gt;
+  &lt;li&gt;CRUD function generation using the models&lt;/li&gt;
+  &lt;li&gt;Validation module&lt;/li&gt;
+  &lt;li&gt;Object relational mapping(&lt;a href=&quot;https://en.wikipedia.org/wiki/Object-relational_mapping&quot;&gt;ORM&lt;/a&gt; layer for the database.)&lt;/li&gt;
+  &lt;li&gt;Form Generation&lt;/li&gt;
+  &lt;li&gt;Integrated Themes and layouts&lt;/li&gt;
+  &lt;li&gt;Runs on both nix and windows&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;What exactly am I doing for Sailor ?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;centralized-configuration-editor&quot;&gt;Centralized configuration editor&lt;/h2&gt;
+&lt;p class=&quot;text-justify&quot;&gt;&lt;br /&gt;
+Most web frameworks generally have an admin center for editing configuration files, making controllers, models etc. Sailor has autogenerator fucntions which create models and controllers for you. My task is to encompass a configuration file editor, the autogen functions inside a protected environment for use in development.&lt;/p&gt;
+
+&lt;h2 id=&quot;elasticsearch-integration&quot;&gt;Elasticsearch Integration&lt;/h2&gt;
+&lt;p class=&quot;text-justify&quot;&gt;&lt;br /&gt;
+&lt;a href=&quot;https://www.elastic.co/products/elasticsearch&quot;&gt;Elasticsearch&lt;/a&gt; is a search database server based on &lt;a href=&quot;https://lucene.apache.org&quot;&gt;Apache Lucene&lt;/a&gt;. It can be used to search all kinds of documents. It provides scalable search, has near real-time search, and supports multitenancy(One instance of a software being shared by multiple users). &lt;br /&gt; There is a low level client for this in lua called &lt;a href=&quot;https://github.com/DhavalKapil/elasticsearch-lua&quot;&gt;elasticsearch-lua&lt;/a&gt; and I shall be integrating this into Sailor. Once done, you can search an elasticsearch instance using the form module in Sailor. You can also use Elasticsearch indexes as Sailor Models.&lt;/p&gt;
+
+&lt;p&gt;Edit: I worked on these features and you can see the corresponding pull request &lt;a href=&quot;https://github.com/sailorproject/sailor/pull/125&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>About this site and me</title>
+        <link>http://localhost:4000/heello</link>
+        <pubDate>Wed, 20 Apr 2016 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;p&gt;This site is a partial collection of stories I’ve written down, my general musings and the software I work on. There is no particular theme to this site; it’s just a place to hang text we don’t have a better place for.&lt;/p&gt;
+</description>
+      </item>
+    
+      <item>
+        <title>Demo post</title>
+        <link>http://localhost:4000/demo-post</link>
+        <pubDate>Fri, 07 Mar 2014 00:00:00 +0530</pubDate>
+        <author></author>
+        <description>&lt;p&gt;Praesent tincidunt vestibulum sem nec eleifend. Pellentesque adipiscing mollis adipiscing. Sed ipsum sem, eleifend eget dapibus in, tincidunt ut dolor. Curabitur gravida urna leo, eget auctor turpis feugiat non. Vivamus pharetra, lorem id ullamcorper rutrum, eros erat condimentum erat, ac dignissim lorem nisi nec nunc. Praesent tellus mi, volutpat quis nisl et, consectetur blandit nibh.&lt;/p&gt;
+
+&lt;p&gt;Nulla sit amet nulla non odio sodales mollis elementum sed sem. Aenean et laoreet enim. Curabitur vulputate, mi rutrum commodo condimentum, enim nunc feugiat magna, vel rutrum sapien ante nec ante. Donec nec nibh placerat, molestie felis ac, vulputate arcu. Donec condimentum pellentesque nibh vel tincidunt. Fusce sem ipsum, varius at laoreet vitae, accumsan sed nisl. Nunc eget viverra diam. Aliquam pulvinar, enim id commodo tincidunt, risus lectus pharetra lacus, et semper enim ligula ut mauris. Sed vitae sollicitudin ante. In sollicitudin placerat dui et sagittis.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas leo id tortor feugiat, sit amet cursus diam mollis. Nunc sit amet tellus est. Nunc lacus nisl, gravida ut aliquam vel, molestie eget odio. Nulla facilisi. Ut sed libero pharetra nunc volutpat hendrerit. Mauris eget mi adipiscing, congue tellus ut, scelerisque eros. Phasellus ullamcorper dictum tellus nec pretium.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Integer molestie orci ante, nec dictum metus aliquam ut. Donec id tristique enim. Quisque tellus est, dignissim ut justo ac, volutpat fringilla mi. Duis ultricies nec sapien vitae blandit. &lt;strong&gt;Suspendisse sed est mi&lt;/strong&gt;. Mauris varius sapien vel nulla accumsan, id tincidunt ipsum ultrices. Sed eget magna mauris. Etiam porttitor lacus ullamcorper lacus tincidunt aliquam. Sed feugiat congue fringilla. Nunc velit diam, vulputate sed metus vitae, iaculis tempor arcu. Proin consectetur a erat in dignissim.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tables&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Are&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Cool&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 3 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;right-aligned&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1600&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;col 2 is&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;centered&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;zebra stripes&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;are neat&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$1&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Pellentesque adipiscing mollis adipiscing.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nulla sit amet nulla non odio sodales mollis elementum sed sem.&lt;/li&gt;
+  &lt;li&gt;Donec id tristique enim. Quisque tellus est, dignissim ut justo ac, volutpat fringilla mi.&lt;/li&gt;
+  &lt;li&gt;Nam luctus erat dolor, non viverra nulla varius at.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Curabitur nec ullamcorper dui, blandit aliquet ipsum. Integer suscipit odio quis eros fermentum auctor. Sed tincidunt quam eleifend, egestas erat vulputate, tincidunt metus. Maecenas gravida sodales mi nec posuere. Cras vel nisi condimentum, hendrerit lacus sed, scelerisque ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc convallis vestibulum erat, quis porta tellus. &lt;em&gt;In lorem erat, sollicitudin varius posuere id, molestie ac eros&lt;/em&gt;. Fusce luctus tellus vitae vulputate venenatis. Sed scelerisque bibendum interdum. Sed pretium commodo ultrices. Fusce luctus quam id porttitor vulputate. Integer ornare consectetur diam eget rutrum. Etiam eget sapien metus.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Ornare&lt;/dt&gt;
+  &lt;dd&gt;Cras vel nisi condimentum, hendrerit lacus sed, scelerisque ipsum.&lt;/dd&gt;
+  &lt;dt&gt;Convallis&lt;/dt&gt;
+  &lt;dd&gt;In lorem erat, sollicitudin varius posuere id, molestie ac eros&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Proin at libero id lorem fermentum elementum quis eget est.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Nam bibendum turpis massa, at accumsan justo fermentum ac.&lt;/li&gt;
+  &lt;li&gt;Nulla non nulla ut ante condimentum mattis vel at lectus.&lt;/li&gt;
+  &lt;li&gt;Etiam eget tortor tincidunt, iaculis ligula a, tristique massa. Fusce sed congue lorem, interdum sodales nisl.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Etiam consequat euismod ornare. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla pellentesque ipsum vulputate, pellentesque nisl vitae, lacinia sem. Praesent auctor felis et odio ultrices, nec tempor elit lobortis. Etiam ornare massa non risus luctus, id iaculis lacus egestas. Pellentesque massa dolor, mattis id lobortis eget, tristique vitae est.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Nam vulputate leo vitae libero vehicula, id tincidunt velit malesuada. In vel ornare nisi, id semper turpis. Vivamus erat elit, venenatis quis dui at, convallis suscipit sapien. Nunc in nisi scelerisque, aliquam mauris porttitor, facilisis ligula. Vestibulum cursus erat ac turpis bibendum, id pulvinar dolor dapibus. Proin vitae justo et velit imperdiet ultrices id id odio. Cras adipiscing ante vel mauris lobortis rutrum. Aenean eu felis est. In lacinia porttitor risus non sagittis.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Greeter&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;greet&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;john&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Greeter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Hello, World&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;john&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;greet&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Sed imperdiet interdum ultrices. Phasellus iaculis porttitor lorem nec scelerisque. Suspendisse eros urna, adipiscing vel luctus at, feugiat sit amet arcu. Aliquam porttitor ut urna pellentesque sagittis. Donec pellentesque venenatis diam sit amet cursus. Etiam luctus, metus quis gravida fermentum, tortor arcu consequat metus, eget viverra augue risus ac dui. Fusce faucibus scelerisque quam eu sagittis. Sed sit amet sapien non augue lobortis adipiscing. Sed sagittis at lectus eu tempus. Nulla non nulla ut ante condimentum mattis vel at lectus. Nulla ultricies dui et urna semper ultrices. Sed neque ante, dictum in dignissim luctus, facilisis ornare odio. Aenean tempor ultrices magna non pharetra. Curabitur vulputate nec est aliquet suscipit. Etiam ipsum sapien, dictum quis tristique vel, pretium at elit.&lt;/p&gt;
+</description>
+      </item>
+    
+
+  </channel>
+</rss>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta information -->
+<meta charset="utf-8">
+<meta name="description" 
+      content="I will be working with Lablua as part of Google Summer of Code, 2016. I shall be extending the Sailor framework by ad..." >
+<meta name="author" content="Nikhil. R">
+
+<!-- Enable responsiveness on mobile devices-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- title -->
+<title>Lablua - Sailor Framework &middot; Nikhil. R</title>
+
+<!-- icons -->
+<link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+<!-- stylesheets -->
+<link rel="stylesheet" href="/assets/css/responsive.gs.12col.css">
+<link rel="stylesheet" href="/assets/css/animate.min.css">
+<link rel="stylesheet" href="/assets/css/syntax.css">
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+
+
+
+<!-- feed links -->
+<link rel="alternate" href="http://localhost:4000/feed.xml" type="application/rss+xml" title="Nikhil. R">
+
+  </head>
+  <body>
+    <main class="container azul">
+      
+      <header>
+      
+        <!-- <div>
+          <a href="http://localhost:4000" id="logo" title="Nikhil. R"
+             style="background-image: url(/assets/images/logo.png);"></a>
+        </div> -->
+
+        <nav id="main-navigation">
+  
+  
+  <a href="/" title="Posts">Posts</a>
+  
+  
+  
+  <a href="/about" title="About">About</a>
+  
+  
+  
+  <a href="/projects" title="Projects">Projects</a>
+  
+  
+  
+  <a href="/assets/resume.pdf" title="Resume">Resume</a>
+  
+  
+  
+  <a href="/contact" title="Contact">Contact</a>
+  
+  
+</nav>
+
+      </header>
+
+      <article class="single row gutters">
+  <time class="published" datetime="2016-05-03">03 May 2016</time>
+  <h2>Lablua - Sailor Framework</h2>
+
+  <p class="text-justify">I will be working with Lablua as part of Google Summer of Code, 2016. I shall be extending the Sailor framework by adding an centralized configuration editor and adding integrations to facilitate Elasticsearch indexes to be stored as Sailor Models. Sailor is a Web Framework.</p>
+
+<h2 id="what-is-a-web-framework-">What is a <a href="">Web Framework</a> ?</h2>
+
+<p>From Wikipedia,</p>
+
+<blockquote>
+  <blockquote>
+    <p>A web framework (WF) or web application framework (WAF) is a software framework that is designed to support the development of web applications including web services, web resources and web APIs.</p>
+  </blockquote>
+</blockquote>
+
+<p class="text-justify">As it says, it’s basically used to remove the same redundant overhead associated with creating web applications. Most web applications have/do the following things</p>
+<ul>
+  <li>Database access, mapping, configuration</li>
+  <li>Session Management</li>
+  <li>User Interfaces</li>
+  <li>Secure authorization and authentication</li>
+  <li>URL routing/mapping</li>
+</ul>
+
+<p class="text-justify">Web frameworks promote code re-use by providing easy ways to do the above mentioned stuff. They differ in each other in their architectural pattern, the most common one being the M(Database logic) V(User Interface) C(Business logic) <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC architecture</a>.</p>
+<p class="text-justify">I will be working on a Web Framework named <a href="http://sailorproject.org/">Sailor</a> this summer.
+{: .text-justify}## Sailor
+Sailor is a web development framework and all applications are structured in a MVC(Model-View-Controller) architecture. It uses a Javascript virtual machine for use of Lua in the browser if required. An example of the JS Virtual Machine can be found <a href="https://github.com/paulcuth/starlight">here</a></p>
+
+<h2 id="features">Features</h2>
+<p><br /></p>
+
+<ul>
+  <li>Compatible with Lua 5.1, Lua 5.2 and LuaJIT</li>
+  <li>MVC Structure</li>
+  <li>Routing</li>
+  <li>Friendly URL’s</li>
+  <li>Lua at Client using JS virtual machines deployed with the application</li>
+  <li>Model generation from the database</li>
+  <li>CRUD function generation using the models</li>
+  <li>Validation module</li>
+  <li>Object relational mapping(<a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a> layer for the database.)</li>
+  <li>Form Generation</li>
+  <li>Integrated Themes and layouts</li>
+  <li>Runs on both nix and windows</li>
+</ul>
+
+<p><strong>What exactly am I doing for Sailor ?</strong></p>
+
+<h2 id="centralized-configuration-editor">Centralized configuration editor</h2>
+<p class="text-justify"><br />
+Most web frameworks generally have an admin center for editing configuration files, making controllers, models etc. Sailor has autogenerator fucntions which create models and controllers for you. My task is to encompass a configuration file editor, the autogen functions inside a protected environment for use in development.</p>
+
+<h2 id="elasticsearch-integration">Elasticsearch Integration</h2>
+<p class="text-justify"><br />
+<a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> is a search database server based on <a href="https://lucene.apache.org">Apache Lucene</a>. It can be used to search all kinds of documents. It provides scalable search, has near real-time search, and supports multitenancy(One instance of a software being shared by multiple users). <br /> There is a low level client for this in lua called <a href="https://github.com/DhavalKapil/elasticsearch-lua">elasticsearch-lua</a> and I shall be integrating this into Sailor. Once done, you can search an elasticsearch instance using the form module in Sailor. You can also use Elasticsearch indexes as Sailor Models.</p>
+
+<p>Edit: I worked on these features and you can see the corresponding pull request <a href="https://github.com/sailorproject/sailor/pull/125">here</a>.</p>
+
+</article>
+
+
+      <footer>
+        <p>
+          This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/deed.en_US">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+        </p>
+      </footer>
+    </main>
+
+    <!-- scripts -->
+    <script src="/assets/js/fluidvids.min.js"></script>
+    <!-- <script>
+      fluidvids.init({
+        selector: ['iframe', 'object'],
+        players: ['www.youtube.com', 'player.vimeo.com']
+      });
+    </script> -->
+  </body>
+</html>
