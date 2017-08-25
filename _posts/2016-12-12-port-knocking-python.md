@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: post
 title: A Secure Portknocking Implementation - Portsmith
 comments: True
 ---

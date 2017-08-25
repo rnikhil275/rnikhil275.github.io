@@ -1,8 +1,7 @@
 ---
 layout: home
-title: Build a tracer with ptrace - microTracer
+title: Building a syscall tracer with ptrace - microTracer
 comments: True
-ready: False
 ---
 
 I wanted to get to know how strace works and to really understand it's working, I decided to write my own implementation which does what strace does although on a simple level. I won't be explaining about what strace does because there are like a million entries on the Internet which explain the same. I shall be explaining about my implementation. 

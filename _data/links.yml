@@ -7,8 +7,12 @@
 - url: /projects
   title: Projects
 
-- url: /assets/mapping_request.png
+- url: /nikhil_r_resume.pdf
   title: Resume
+
+- url: /other
+  title: Other
 
 - url: /contact
   title: Contact
+

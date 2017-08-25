@@ -1,4 +1,3 @@
 User-agent: *
 Sitemap: {{ site.url }}/sitemap.xml
-Disallow: /ramble/
-Disallow: /_posts/ramble
+
