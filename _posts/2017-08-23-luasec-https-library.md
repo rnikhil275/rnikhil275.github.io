@@ -16,16 +16,15 @@ My fork of Luasec(dev branch) can be found <a href="https://github.com/whoami-nr
 <strong>HTTPS Module</strong>
 
 - CONNECT proxy support for HTTPS. Now Luasec can be used to initiate a CONNECT tunnel to a HTTP
-proxy which enables the proxy to relay encrypted packets between Luasec and the final destination.
+proxy which enables the proxy to relay encrypted packets between Luasec and the final destination. This also works when redirects are enabled. While redirecting HTTPS->HTTPS or HTTP->HTTPS or HTTPS->HTTP(if the unsaferedirect paramter is set) it creates a new tunnel with the proxy for the new redirected destination. 
 
+- Support for HTTPS redirects with an additional safeguard for preventing unsafe redirects from HTTPS->HTTP. This involves usage of the `unsaferedirect` paramter. 
 
-- Support for HTTPS redirects with an additional safeguard for preventing unsafe redirects from HTTPS->HTTP
+- Merge HTTP module from luasocket into luasec thus unifying the HTTPS module. All the HTTP low level functions have been imported into luasec now. This was done to increase code reuse within the library. 
 
-- Merge HTTP module from luasocket into luasec thus unifying the HTTPS module. All the HTTP low level functions have been imported into luasec now. 
+- Test server name indication so that it conforms to section 3.1 of rfc 3546 which can found <a href="https://www.ietf.org/rfc/rfc3546.txt">here</a>.
 
-- Test server name indication so that it conforms to section 3.1 of rfc 3546 which can found <a href="https://www.ietf.org/rfc/rfc3546.txt">here</a>
-
-- Documented all the new additions in the Wiki of my repo which can be found <a href="https://github.com/whoami-nr/luasec/wiki">here</a> 
+More details and references can be found about this on the wiki page of my fork <a href="https://github.com/whoami-nr/luasec/wiki/Luasec-HTTPS-Module">here</a>.
 
 <strong>HTTP/2 Module</strong>
 
@@ -38,7 +37,7 @@ proxy which enables the proxy to relay encrypted packets between Luasec and the 
 - Recieve a process a SETTINGS frame and then also send back a SETTINGS ACK frame thus establishing the stream parameters. 
 
 
-One of the most important part of this was reading a RFC's and learning to adhere to the specs. Also learnt a lot about debugging a network protocol implementation while getting to know the internals. 
+One of the most important part of this was reading a RFC's and learning to adhere to the specs. Also learnt a lot about debugging a network protocol implementation while 	getting to know the internals. 
 
 
 # Work to be done
