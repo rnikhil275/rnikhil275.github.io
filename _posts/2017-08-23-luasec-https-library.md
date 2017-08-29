@@ -12,7 +12,7 @@ My fork of Luasec(dev branch) can be found <a href="https://github.com/whoami-nr
 
 <strong>HTTPS Module</strong>
 
-I was working to add features for the HTTPS module during the first part of GSoC. It now supports the ability to talk HTTPS with a proxy, redirects through or without the proxy for HTTPS URLs, certain low level HTTP API functions are exposed and also supports SNI now. 
+I was working to add features for the HTTPS module during the first part of GSoC. It now supports the ability to talk HTTPS with a proxy, redirects through or without the proxy for HTTPS URLs, certain low level HTTP API functions are exposed and also supports SNI now. Work done in this section are relevant to this [file](https://github.com/whoami-nr/luasec/blob/dev/src/https.lua).
 
 
 - CONNECT proxy support for HTTPS. Now Luasec can be used to initiate a CONNECT tunnel to a HTTP
@@ -34,13 +34,21 @@ The RFC I used can be found [here](http://httpwg.org/specs/rfc7540.html).
 
 The first two sections in the RFC are just an introduction and a generic protcol overview. 
 
-1) Section 3
+1) [Section 3](http://httpwg.org/specs/rfc7540.html#rfc.section.3)
 
 - It deals with starting a HTTP/2 connection. 
 
-- Starting HTTP/2 for HTTP url's (No TLS) involved implementing a upgrade mechanism which informs the server of the upgrade request. For connections with TLS 
+- Starting HTTP/2 for HTTP url's (No TLS) involved implementing a upgrade mechanism which informs the server of the upgrade request. For TLS connections the socket is just wrapped with luasec. 
 
-- The HTTP/2 connection module implementing ( send and receive frame functions) the support for sending basic frames like SETTINGS, HEADERS etc. 
+- The connection preface is sent after both the client and server have decided to use HTTP/2.
+
+- This section has been completely implemented. 
+
+2) [Section 4](http://httpwg.org/specs/rfc7540.html#rfc.section.4)
+
+- It deals with support for all the relevant frame types.
+
+- The HTTP/2 connection module implementing ( send and receive frame functions) the support for sending basic frames like SETTINGS, HEADERS etc has been finished. It supports 
 
 - Add a HTTP -> HTTP/2 negotiation scheme so that upgrade requests can be sent from Luasec. 
 
@@ -48,21 +56,39 @@ The first two sections in the RFC are just an introduction and a generic protcol
 
 - Recieve a process a SETTINGS frame and then also send back a SETTINGS ACK frame thus establishing the stream parameters. 
 
+3) [Section 5](http://httpwg.org/specs/rfc7540.html#rfc.section.5)
 
-One of the most important part of this was reading RFC's and learning to adhere to the specs. Also learnt a lot about debugging a network protocol implementation while getting to know the internals.
+- This section deals with Streams and multiplexing them over the same TCP connection or socket. 
+
+- This portion has been partially implemented. I tried making a non blocking version using copas for dispatching and creating a queue. It presently works with the `socket.select()` function from luasocket which it uses to wait on the socket to find out if it's ready to be read or written to. 
+
+4) [Section 6](http://httpwg.org/specs/rfc7540.html#rfc.section.6)
+
+- This section deals with the different frame types and their definition. 
+
+- This portion has been completely implemented. The `send_frame` function in the module supports all the 10 types of frames. 
+
+
+*Section 8* deals with HTTP/2 connection management and deals just with specifying which frames have been used for what kind of requests and what to do when we receive a response. I used this section as a reference for implementing my HTTP/2 connection module. Other sections in the RFC are also just considerations and references for a good implementation.
+
+
+One of the most important part of this was reading RFC's and learning to adhere to the specs. Also learnt a lot about debugging a network protocol implementation while getting to know the internals. More details about the implementation and references can be found in the [wiki](https://github.com/whoami-nr/luasec/wiki/Luasec-HTTP-2-Module). 
 
 
 # Work to be done
 
 - Remove the fake connection object from the HTTPS module which become pointless after the integration. 
 
-- Make the connection module non blocking and add support for more frames. 
+- Make the connection module non blocking.  
 
 - Try to merge the existing PR supporting the ALPN negotiation scheme. 
 
 
 # Roadmap for the HTTP/2 implementation and future work
 
+I have been implementing HTTP/2 based entirely on the RFC going through it one by one. 
+
+[Section 7](http://httpwg.org/specs/rfc7540.html#rfc.section.7) deals with HTTP/2 error codes for which we have to implement a module specifying the same. Based on this module it also has to be linked with the existing implementation so that all the error's (essentially error messages) get redirected to it and we receive proper error messages for debugging effectively. The lua-http module (It's a HTTP/2 lua module using Cqueues) has done it [here](https://github.com/daurnimator/lua-http/blob/master/http/h2_error.lua) which can used as reference. 
 
 
-
+[Section 9](http://httpwg.org/specs/rfc7540.html#rfc.section.9) deals with Additional HTTP/2 requirements like connection management, setting up and following a priority tree and connection reuse. 
