@@ -29,9 +29,13 @@ More details on how to use it and references for the functions can be found on t
 <strong>HTTP/2 Module</strong>
 
 This portion of the module was worked on during the second part of GSoC. I went by implementing RFC's sequentially while also trying to make sure that I had a basic implementation for sending and receving frames working all along. Work done in this section are relevant to these files. 
+
 [1) Error Module](https://github.com/whoami-nr/luasec/blob/dev/src/http2_error.lua)
+
 [2) Stream Module](https://github.com/whoami-nr/luasec/blob/dev/src/http2_stream.lua)
+
 [3) Codec Module](https://github.com/whoami-nr/luasec/blob/dev/src/codec.lua)
+
 [4) Bit Operation Module](https://github.com/whoami-nr/luasec/blob/dev/src/bit.lua)
 
 The Codec Module is used for string packing and unpacking. It provides a unified interface for various modes in `string.pack` and `string.unpack` functions. The Bit operation module smoothens out all the various lua bit libraries and versions. The `bit` libary with luajit, `bit32` libary with lua 5.2 and lua 5.3 built in bit operators are wrapped in a unified function. 
@@ -60,9 +64,9 @@ The first two sections in the RFC are just an introduction and a generic protcol
 
 - Maintain a Header table on the client side for implementation of HPACK later on. 
 
-- Recieve a process a SETTINGS frame and then also send back a SETTINGS ACK frame thus establishing the stream parameters. 
+- Recieve a process a SETTINGS frame and then also send back a SETTINGS ACK frame thus establishing the stream parameters.
 
-- Implemented functions for writing priority(which specifies the sender advised priority of the stream), rst_stream (which allows for immediate termination of stream), ping(which helps measure the minimal roundtrip from the sender as well as for determining whether an idle connection is functional), data, headers, window_update frames, settings( stream session settings), push_promise(which notifies the peer endpoint in advance of stream the sender intends to initiate) etc. to the socket. All these functions are documented in the wiki. 
+- Implemented functions for writing priority(which specifies the sender advised priority of the stream), rst_stream (which allows for immediate termination of stream), ping(which helps measure the minimal roundtrip from the sender as well as for determining whether an idle connection is functional), data(which sends http data), headers(which sends http headers), window_update frames(which is used for implementing flow control), settings( stream session settings), push_promise(which notifies the peer endpoint in advance of stream the sender intends to initiate) etc. to the socket. All these functions are documented in the wiki. 
 
 3) [Section 5](http://httpwg.org/specs/rfc7540.html#rfc.section.5)
 
@@ -70,9 +74,9 @@ The first two sections in the RFC are just an introduction and a generic protcol
 
 - This portion has been partially implemented. I tried making a non blocking version using copas for dispatching and creating a queue. It presently works with the `socket.select()` function from luasocket which it uses to wait on the socket to find out if it's ready to be read or written to. 
 
-- There is a simple implementation of a priority queue. I set a priority flag and if it's set I set up that stream first. 
+- There is a simple implementation of a priority queue. I set a priority flag and if it's set I send up that stream first. 
 
-- Feature implemeting the monitoring of stream states is also done which enables the module to be aware of the stream state and respond accordingly. 
+- Feature implementing the monitoring of stream states is also done which enables the module to be aware of the stream state and respond accordingly. 
 
 4) [Section 6](http://httpwg.org/specs/rfc7540.html#rfc.section.6)
 
