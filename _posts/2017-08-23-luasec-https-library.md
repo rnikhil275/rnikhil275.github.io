@@ -28,7 +28,7 @@ More details on how to use it and references for the functions can be found on t
 
 <strong>HTTP/2 Module</strong>
 
-I went by implementing RFC's sequentially while also trying to make sure that I had a basic implementation for sending and receving frames working all along. 
+This portion of the module was worked on during the second part of GSoC. I went by implementing RFC's sequentially while also trying to make sure that I had a basic implementation for sending and receving frames working all along. Work done in this section are relevant to these files. [1](), [2](). 
 
 The RFC I used can be found [here](http://httpwg.org/specs/rfc7540.html). 
 
@@ -56,11 +56,15 @@ The first two sections in the RFC are just an introduction and a generic protcol
 
 - Recieve a process a SETTINGS frame and then also send back a SETTINGS ACK frame thus establishing the stream parameters. 
 
+- Implemented functions for writing priority, rst_stream, ping, data, headers, window_update frames etc. to the socket. All these functions are documented in the wiki. 
+
 3) [Section 5](http://httpwg.org/specs/rfc7540.html#rfc.section.5)
 
 - This section deals with Streams and multiplexing them over the same TCP connection or socket. 
 
 - This portion has been partially implemented. I tried making a non blocking version using copas for dispatching and creating a queue. It presently works with the `socket.select()` function from luasocket which it uses to wait on the socket to find out if it's ready to be read or written to. 
+
+- There is a simple implementation of a priority queue. I set a priority flag and if it's set I set up that stream first. 
 
 4) [Section 6](http://httpwg.org/specs/rfc7540.html#rfc.section.6)
 
@@ -69,6 +73,8 @@ The first two sections in the RFC are just an introduction and a generic protcol
 - This portion has been completely implemented. The `send_frame` function in the module supports all the 10 types of frames. 
 
 
+*Section 7* deals with the error module for which I have added a basic module which can be found [here](https://github.com/whoami-nr/luasec/blob/dev/src/http2_error.lua).
+ 
 *Section 8* deals with HTTP/2 connection management and deals just with specifying which frames have been used for what kind of requests and what to do when we receive a response. I used this section as a reference for implementing my HTTP/2 connection module. Other sections in the RFC are also just considerations and references for a good implementation.
 
 
@@ -88,7 +94,7 @@ One of the most important part of this was reading RFC's and learning to adhere 
 
 I have been implementing HTTP/2 based entirely on the RFC going through it one by one. 
 
-[Section 7](http://httpwg.org/specs/rfc7540.html#rfc.section.7) deals with HTTP/2 error codes for which we have to implement a module specifying the same. Based on this module it also has to be linked with the existing implementation so that all the error's (essentially error messages) get redirected to it and we receive proper error messages for debugging effectively. The lua-http module (It's a HTTP/2 lua module using Cqueues) has done it [here](https://github.com/daurnimator/lua-http/blob/master/http/h2_error.lua) which can used as reference. 
+[Section 7](http://httpwg.org/specs/rfc7540.html#rfc.section.7) deals with HTTP/2 error codes for which we have to implement a module specifying the same. Based on this module it also has to be linked with the existing implementation so that all the error's (essentially error messages) get redirected to it and we receive proper error messages for debugging effectively. 
 
 
 [Section 9](http://httpwg.org/specs/rfc7540.html#rfc.section.9) deals with Additional HTTP/2 requirements like connection management, setting up and following a priority tree and connection reuse. 
