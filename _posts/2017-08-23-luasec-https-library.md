@@ -72,7 +72,7 @@ The first two sections in the RFC are just an introduction and a generic protcol
 
 - This section deals with Streams and multiplexing them over the same TCP connection or socket. 
 
-- This portion has been partially implemented. I tried making a non blocking version using copas for dispatching and creating a queue. It presently works with the `socket.select()` function from luasocket which it uses to wait on the socket to find out if it's ready to be read or written to. 
+- This portion has been partially implemented. I tried making a non blocking version using copas for dispatching and creating a queue. It presently works with the `socket.select()` function from luasocket which it uses to wait on the socket to find out if it's ready to be read or written to. There are basic definition for send and receive functions. 
 
 - There is a simple implementation of a priority queue. I set a priority flag and if it's set I send up that stream first. 
 
@@ -92,6 +92,7 @@ The first two sections in the RFC are just an introduction and a generic protcol
 
 One of the most important part of this was reading RFC's and learning to adhere to the specs. Also learnt a lot about debugging a network protocol implementation while getting to know the internals. More details about the implementation and references can be found in the [wiki](https://github.com/whoami-nr/luasec/wiki/Luasec-HTTP-2-Module). 
 
+---
 
 # Work to be done
 
