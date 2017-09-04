@@ -40,7 +40,7 @@ This portion of the module was worked on during the second part of GSoC. I went 
 
 The Codec Module is used for string packing and unpacking. It provides a unified interface for various modes in `string.pack` and `string.unpack` functions. The Bit operation module smoothens out all the various lua bit libraries and versions. The `bit` libary with luajit, `bit32` libary with lua 5.2 and lua 5.3 built in bit operators are wrapped in a unified function. 
 
-The RFC I used can be found [here](http://httpwg.org/specs/rfc7540.html). 
+The RFC I used can be found [here](http://httpwg.org/specs/rfc7540.html). I also used the lua-http module for lot of reference code. The module can be found [here](github.com/daurnimator/lua-http/)
 
 The first two sections in the RFC are just an introduction and a generic protcol overview. 
 
@@ -105,7 +105,7 @@ One of the most important part of this was reading RFC's and learning to adhere 
 
 # Roadmap for the HTTP/2 implementation and future work
 
-I have been implementing HTTP/2 based entirely on the RFC going through it one by one. 
+I have been implementing HTTP/2 based on the RFC going through it one by one. I took a lot of template code from the lua-http module which can be found [here](github.com/daurnimator/lua-http/)
 
 [Section 7](http://httpwg.org/specs/rfc7540.html#rfc.section.7) deals with HTTP/2 error codes for which we have to implement a module specifying the same. Based on this module it also has to be linked with the existing implementation so that all the error's (essentially error messages) get redirected to it and we receive proper error messages for debugging effectively. 
 
