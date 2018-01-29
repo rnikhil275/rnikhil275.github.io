@@ -4,48 +4,48 @@ https://keybase.io/whoami_nr
 
 I hereby claim:
 
-  * I am an admin of https://whoami-nr.github.io
+  * I am an admin of http://blog.lihkin.me
   * I am whoami_nr (https://keybase.io/whoami_nr) on keybase.
-  * I have a public key ASDrOzh6_cVF-aP9yqBT-g_j5mi63NAuClYx0voeJZA9KQo
+  * I have a public key ASD_f6EHWXVnNI15j9dKsp1ISZZU0l70Lsf-qadZs8_TvQo
 
 To do so, I am signing this object:
 
 {
   "body": {
     "key": {
-      "eldest_kid": "0120212269243f08139a91d7e73a495597682fc4ea89c1c85b15a94cfbcd3e548e1b0a",
+      "eldest_kid": "0120ff7fa107597567348d798fd74ab29d48499654d25ef42ec7fea9a759b3cfd3bd0a",
       "host": "keybase.io",
-      "kid": "0120eb3b387afdc545f9a3fdcaa053fa0fe3e668badcd02e0a5631d2fa1e25903d290a",
+      "kid": "0120ff7fa107597567348d798fd74ab29d48499654d25ef42ec7fea9a759b3cfd3bd0a",
       "uid": "e6153403c92b46cd2d15dcb95a461119",
       "username": "whoami_nr"
     },
     "merkle_root": {
-      "ctime": 1501083621,
-      "hash": "b26d25901f6c4c2ec3e073aa2df72f138773a7dff68a232e7a23fe427e5c601e75a6bce3bebf5937984be34012da170937b85f4e0b82099d391574066d9ca5ea",
-      "hash_meta": "83ec7cd8c80aba44460c09c3f33a1248456a0a1f7b55c3c5c45fcee77fa4d092",
-      "seqno": 1282290
+      "ctime": 1517233073,
+      "hash": "05a22ae4bd133dbb8899af48894adcf029a6942d6084af5e32e64cb122c8c59e34e16574b898f4dae4633fb776242306f2b7b805206dc6a6376b2f85e054bad9",
+      "hash_meta": "9296e947c531a069c4d72575bd624ec5a046dedf016eb1d4e43f7e1ae85385b8",
+      "seqno": 1999150
     },
     "service": {
-      "hostname": "whoami-nr.github.io",
-      "protocol": "https:"
+      "hostname": "blog.lihkin.me",
+      "protocol": "http:"
     },
     "type": "web_service_binding",
     "version": 1
   },
   "client": {
     "name": "keybase.io go client",
-    "version": "1.0.26"
+    "version": "1.0.39"
   },
-  "ctime": 1501083632,
+  "ctime": 1517233108,
   "expire_in": 504576000,
-  "prev": "9c4f59583f7467d4dddf485c0530021f69fe4776eae7e691506e19c19a321784",
-  "seqno": 17,
+  "prev": "686fcf469042440ad9483f440f99b5e8b9e13735f589f36be08fb0b92e16e292",
+  "seqno": 33,
   "tag": "signature"
 }
 
 which yields the signature:
 
-hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg6zs4ev3FRfmj/cqgU/oP4+ZoutzQLgpWMdL6HiWQPSkKp3BheWxvYWTFA017ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMjEyMjY5MjQzZjA4MTM5YTkxZDdlNzNhNDk1NTk3NjgyZmM0ZWE4OWMxYzg1YjE1YTk0Y2ZiY2QzZTU0OGUxYjBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZWIzYjM4N2FmZGM1NDVmOWEzZmRjYWEwNTNmYTBmZTNlNjY4YmFkY2QwMmUwYTU2MzFkMmZhMWUyNTkwM2QyOTBhIiwidWlkIjoiZTYxNTM0MDNjOTJiNDZjZDJkMTVkY2I5NWE0NjExMTkiLCJ1c2VybmFtZSI6Indob2FtaV9uciJ9LCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTUwMTA4MzYyMSwiaGFzaCI6ImIyNmQyNTkwMWY2YzRjMmVjM2UwNzNhYTJkZjcyZjEzODc3M2E3ZGZmNjhhMjMyZTdhMjNmZTQyN2U1YzYwMWU3NWE2YmNlM2JlYmY1OTM3OTg0YmUzNDAxMmRhMTcwOTM3Yjg1ZjRlMGI4MjA5OWQzOTE1NzQwNjZkOWNhNWVhIiwiaGFzaF9tZXRhIjoiODNlYzdjZDhjODBhYmE0NDQ2MGMwOWMzZjMzYTEyNDg0NTZhMGExZjdiNTVjM2M1YzQ1ZmNlZTc3ZmE0ZDA5MiIsInNlcW5vIjoxMjgyMjkwfSwic2VydmljZSI6eyJob3N0bmFtZSI6Indob2FtaS1uci5naXRodWIuaW8iLCJwcm90b2NvbCI6Imh0dHBzOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4yNiJ9LCJjdGltZSI6MTUwMTA4MzYzMiwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI5YzRmNTk1ODNmNzQ2N2Q0ZGRkZjQ4NWMwNTMwMDIxZjY5ZmU0Nzc2ZWFlN2U2OTE1MDZlMTljMTlhMzIxNzg0Iiwic2Vxbm8iOjE3LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQJ4gt4XOi3NQK9lop3Ii4ZUlhMgTenEZ4++YVp+ILDsLexEv4ABo9ZJclheG7BY2ZUmK3jGiRM4U026fBRUiVQuoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAfyCvWyWjJ6RWj70JtX/nVJV87eE3tOdTvLTBYktrLl6N0YWfNAgKndmVyc2lvbgE=
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg/3+hB1l1ZzSNeY/XSrKdSEmWVNJe9C7H/qmnWbPP070Kp3BheWxvYWTFA0d7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwZmY3ZmExMDc1OTc1NjczNDhkNzk4ZmQ3NGFiMjlkNDg0OTk2NTRkMjVlZjQyZWM3ZmVhOWE3NTliM2NmZDNiZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwZmY3ZmExMDc1OTc1NjczNDhkNzk4ZmQ3NGFiMjlkNDg0OTk2NTRkMjVlZjQyZWM3ZmVhOWE3NTliM2NmZDNiZDBhIiwidWlkIjoiZTYxNTM0MDNjOTJiNDZjZDJkMTVkY2I5NWE0NjExMTkiLCJ1c2VybmFtZSI6Indob2FtaV9uciJ9LCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTUxNzIzMzA3MywiaGFzaCI6IjA1YTIyYWU0YmQxMzNkYmI4ODk5YWY0ODg5NGFkY2YwMjlhNjk0MmQ2MDg0YWY1ZTMyZTY0Y2IxMjJjOGM1OWUzNGUxNjU3NGI4OThmNGRhZTQ2MzNmYjc3NjI0MjMwNmYyYjdiODA1MjA2ZGM2YTYzNzZiMmY4NWUwNTRiYWQ5IiwiaGFzaF9tZXRhIjoiOTI5NmU5NDdjNTMxYTA2OWM0ZDcyNTc1YmQ2MjRlYzVhMDQ2ZGVkZjAxNmViMWQ0ZTQzZjdlMWFlODUzODViOCIsInNlcW5vIjoxOTk5MTUwfSwic2VydmljZSI6eyJob3N0bmFtZSI6ImJsb2cubGloa2luLm1lIiwicHJvdG9jb2wiOiJodHRwOiJ9LCJ0eXBlIjoid2ViX3NlcnZpY2VfYmluZGluZyIsInZlcnNpb24iOjF9LCJjbGllbnQiOnsibmFtZSI6ImtleWJhc2UuaW8gZ28gY2xpZW50IiwidmVyc2lvbiI6IjEuMC4zOSJ9LCJjdGltZSI6MTUxNzIzMzEwOCwiZXhwaXJlX2luIjo1MDQ1NzYwMDAsInByZXYiOiI2ODZmY2Y0NjkwNDI0NDBhZDk0ODNmNDQwZjk5YjVlOGI5ZTEzNzM1ZjU4OWYzNmJlMDhmYjBiOTJlMTZlMjkyIiwic2Vxbm8iOjMzLCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQHabUY9w24Co/K0n/bScIKmYDkU4tTrxKlPNhwBsH8eu1mAjurUcDccLkucujYX7T4xQ7RDF35FZLV/jV7RdcAeoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDhidfw6V4gC11hmEXcwe96ODJNevWBpXg5iZkyDSrIjqN0YWfNAgKndmVyc2lvbgE=
 
 And finally, I am proving ownership of this host by posting or
 appending to this document.
