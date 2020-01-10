@@ -1,18 +1,19 @@
 ---
 layout: page
-title: About
+title: 
 ---
 
-Hi !
-I am Nikhil. R, a final year student at BITS Pilani, Pilani Campus. This blog is for the projects I work on and to talk about certain low level stuff. 
+Hi ! Welcome to my corner on the internet. 
+I am Nikhil. R, a recent graduate from BITS Pilani, Pilani campus. This blog is for the projects I work on and to talk about certain low level stuff. 
 
-You can send an encrypted mail using my PGP key : 
+You can contact me at rnikhil[at]outlook[dot]com.
 
-<a href="/about/miscellaneous.html">Miscellaneous</a>
 
 
 Links:
 
-<a href="https://keybase.io/whoami_nr/">Keybase</a>
+<a href="https://www.linkedin.com/in/rnikhil275/">My LinkedIn</a>
 
-<a href="https://www.linkedin.com/in/rnikhil275/">LinkedIn</a>
+<a href="https://github.com/r-nikhil">My Github</a>
+
+<a href="/about/miscellaneous.html">Miscellaneous</a>	

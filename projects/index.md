@@ -7,11 +7,9 @@ title: Projects
   <header class="post-header">
     <h1>Projects</h1>
   </header>
-<!--   To see a complete list of my projects, see my <a href="https://www.linkedin.com/in/rnikhil275/">Linkedin</a> profile or my <a href=""> Github profile</a>. Below, is a list of some of my selected projects.
- -->
- 
-  site still in maintenance
-  <div class="projects">
+  To see a complete list of my projects, see my <a href="https://www.linkedin.com/in/rnikhil275/">Linkedin</a> profile or my <a href=""> Github profile</a>. Below, is a list of some of my selected projects.
+
+   <div class="projects">
     {% for project in site.data.projects %}
       <div class="project">
         <div class="project-name">

@@ -1,6 +1,9 @@
 - url: /
   title: Home
 
+- url: /projects/test
+  title: Projects
+
 - url: /about
   title: About
 

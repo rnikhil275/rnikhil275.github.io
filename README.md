@@ -1,3 +1,3 @@
 # my jekyll blog
 
-My blog [here](https://whoami-nr.github.io)
+My personal website [here](https://r-nikhil.github.io)
