@@ -14,23 +14,64 @@ For the linkedin profile click [here](https://in.linkedin.com/in/rnikhil275)
 
 # Work experience
 
+* **Associate Product Manager 2 - Flipkart** 
+
+1. Worked on the Flipkart data platform building data pipelines and products for user friendly ingestion of data, built analytics dashboard for getting actionable intelligence out of raw data, built guidelines around securing PII data of 100M users
+2. Worked on securing the Fintech data platform by building the Fraud prevention platform 
+3. Worked on the Insurance platform building the motor insurance product for both 4wheelers and 2 wheelers
+
+* **Software Developer -OWASP Code Sprint `17 -  ZSC Tool Project(Summer 2017)** 
+
+1. Worked on adding support for 64 bit Windows (using PEB )in Assembly while also implementing the opcoder.
+2. Added support for various encodings to OS X shellcodes.
+3. Worked on implementing a complex obfuscation module using code flattening techniques
+
+_Technologies Used_: Python, x86 Assembly
+
+
+* **Undergraduate Researcher - Wolfram Research(Summer 2017)**
+
+1. Added a Network Analysis feature to Mathematica to visualise the packet stream in a real time manner to help in debugging systems and network issues reducing average testing time by 30%.
+2. Released as part of Mathematica 11.3 with support to plot time series graphs for analytics.
+Notebook can be found [here](https://education.wolfram.com/summer/school/alumni/2017/ramesh/)
+
+_Technologies Used_: C++, Wolfram Mathematica
+
+
+* **Google Summer of Code 2017 with LabLua - HTTS network module**
+
+Worked with multiple mentors to add support for HTTPS CONNECT Tunnel, HTTPS Redirects, SNI tests and HTTP/2 support for Luasec HTTP networking library bringing it to release. Proposal can be found <a href="/assets/files/LabLua GSoc 2017 Proposal - Nikhil. R.pdf">here</a>
+
+_Technologies Used_: Lua and a lot of networking concepts
+
 * **Google Summer of Code 2016 with LabLua - Sailor Web Framework**
 
-Integrated Elasticsearch with Sailor so that ES indexes can now be stored/searched as Sailor models providing interoperability between both systems. Developed a centralized configuration editor to change config settings on the fly without reloading the entire application. Also working on the centralized plugin system to integrate third party extensions into Sailor
+1. Integrated Elasticsearch with Sailor so that ES indexes can now be stored/searched as Sailor models, developed a config editor to change configuration without downtime greatly easing the development workflow.
+2. Worked on the centralised plugin system to integrate third party extensions into Sailor growing the community multifold.
+Proposal can be found <a href="/assets/files/LabLua GSoc 2016 Proposal - Nikhil. R.pdf">here</a>
 
 _Technologies Used_: Lua, Elasticsearch REST API
 
 * **Vedanta Resources Ltd. (Summer 2015)**
 
-Analyzed and automated the data reporting and logging system at the Jharsuguda Plant saving around 70 hours of manual labor monthly. Personally appreciated by the Vice President(Operations) for the aggregation system and it was immediately put into production. 
+1. Analysed and automated the data reporting and logging system at the Jharsuguda Plant.Written in Python, Python-excel packages like openpyxl and xlutils.
+2. Conducted company wide surveys to identify bottlenecks in operation, implemented automated solutions and saved around 70 hours of manual labor monthly.
 
 _Technologies Used_: Python, Python-excel packages like openpyxl, xlutils etc
 
-* **Technical Lead  SSMS BITS Pilani (April 2015 - May 2016)**
+* **Technical Lead - SSMS BITS Pilani (April 2015 - May 2016)**
 
-Led a 4 member team to develop a billing and inventory management system which is being put into use daily at all messes and canteens to handle transactions of about ₹6 Million monthly for all 4500 registered students.
+1. Led a 4 member team to develop a billing and inventory management system used daily at all messes and canteens to handle transactions about 6 lakh Rupees monthly for all 4500 registered students.Written in PHP, MySQL.
+2. Responsible for smooth operations and timely bank transactions for the system which led to 99.99% availability and no major frauds till date.
 
-_Technologies Used_ : LAMP stack.
+_Technologies Used_ : LAMP stack
+
+* **Technical Lead - DoctorsNow(now https://getvisitapp.com/)(Oct 2014 - Mar 2015)**
+
+1. Led the backend team of 3 to build the MVP for a patient doctor appointment booking system and other products for a healthcare startup.
+2. We developed 1 MVP and 2 products in the duration of 2 months and hit a MRR of 500$ on our MVP itself.
+
+_Technologies Used_: PHP, Slim Framework, WebRTC for the video calls
 
 # Projects
 
@@ -41,12 +82,6 @@ Projects I have worked on in no particular order.
 Extended the OS by adding virtual memory, message passing queues, POSIX threads and OS-level semaphores. Implemented "fork" and "exec" system calls and the ability to run user program. Implemented indexed filesystem, hierarchical directory structure and buffer cache.
 
 _Technologies Used_: C
-
-* **DoctorsNow**
-
-Built the entire appointment booking and video calling system for doctors and patients. Patients can schedule appointments in advance, book slots for video calling and review their previous visits. The product has been now ported to Android and IoS and the startup launched as Visit.
-
-_Technologies Used_: PHP, Slim Framework, WebRTC for the video calls
 
 * **Tracker**
 
@@ -74,8 +109,13 @@ _Technologies Used_: C
 
 # Publications
 
+* CSMS/CA layer for a generic protocol stack
+
 Implemented a Carrier Sense Multiple access with collision avoidance (CSMS/CA) layer for a generic protocol stack which was presented at APOGEE 2015.
 
+* Economic Analysis of Data Breaches
+
+Collected data about recent data breaches in the last one year to build a regression model for prediction and prevention of data breaches. Research thesis indicated that lack of policy understanding and low expenditure to be major factors for breaches. Successfully presented it as my undergraduate thesis for the M.Sc Economics Degree.
 
 # Coursework
 
@@ -100,7 +140,9 @@ Implemented a Carrier Sense Multiple access with collision avoidance (CSMS/CA) l
 
 # Talks
 
-Gave a talk on MVC Web Frameworks and Google Summer of Code to a crowd of enthusiastic people at BITS Pilani, Pilani Campus.
+* Gave a talk on MVC Web Frameworks and Google Summer of Code to a crowd of enthusiastic people at BITS Pilani, Pilani Campus
+
+* Gave a talk on "What is Product Management?" and "Building products for the next 100M users" at BITS Pilani
 
 # Positions of Responsibility
 
@@ -111,7 +153,7 @@ Gave a talk on MVC Web Frameworks and Google Summer of Code to a crowd of enthus
 
 # Other Activities and Interests
 
-I reverse small binaries(crackmes) and play CTF's in my free time. 
+I reverse small binaries(crackmes) and play CTF's in my free time. I also play poker professionally. 
 
 # Awards and Achievements
 
